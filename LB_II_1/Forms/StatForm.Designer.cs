@@ -1,6 +1,6 @@
 ﻿namespace LB_II_1
 {
-    partial class Form1
+    partial class StatForm
     {
         /// <summary>
         /// Required designer variable.

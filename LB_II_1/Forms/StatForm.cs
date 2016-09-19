@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LB_II_1
 {
-    public partial class Form1 : Form
+    public partial class StatForm : Form
     {
-        public Form1()
+        public StatForm()
         {
             InitializeComponent();
         }
