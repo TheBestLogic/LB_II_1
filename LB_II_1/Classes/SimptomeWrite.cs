@@ -79,12 +79,9 @@ namespace LB_II_1.Classes
         public int CheckDisease(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int MayBeItResult = 0;
+            int[] mass = { Pneumonia(Sym, SymC), Angina(Sym, SymC), Flu(Sym, SymC), Pharyngitis(Sym, SymC) , Bronchitis(Sym, SymC)}; 
             //
-            Pneumonia(Sym, SymC);
-            Angina(Sym, SymC);
-            Flu(Sym, SymC);
-            Pharyngitis(Sym, SymC);
-            Bronchitis(Sym, SymC);
+
             //
             return MayBeItResult;
         }
@@ -92,20 +89,26 @@ namespace LB_II_1.Classes
        public int Pneumonia(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
-            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
-            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
-            Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
-            Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
+            if (Sym.RattlingInLungs)
+            {
+                Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+                Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+                Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
+                Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
+            }
             return Summ;
         }
 
         public int Angina(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
-            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
-            Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
-            Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
-            Summ = (Sym.JointPain) ? (Summ + SymC.JointPain) : (Summ);
+            if (Sym.FeverTemperature && Sym.SoreThroat)
+            {
+                Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+                Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+                Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
+                Summ = (Sym.JointPain) ? (Summ + SymC.JointPain) : (Summ);
+            }
             return Summ;
         }
         
@@ -113,31 +116,40 @@ namespace LB_II_1.Classes
         public int Flu(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
-            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
-            Summ = (Sym.Rheum) ? (Summ + SymC.Rheum) : (Summ);
-            Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
-            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            if (Sym.FeverTemperature)
+            {
+                Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+                Summ = (Sym.Rheum) ? (Summ + SymC.Rheum) : (Summ);
+                Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+                Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            }
             return Summ;
         }
 
         public int Pharyngitis(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
-            Summ = (Sym.NotSay) ? (Summ + SymC.NotSay) : (Summ);
-            Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
-            Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
-            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
-            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            if (Sym.SoreThroat)
+            {
+                Summ = (Sym.NotSay) ? (Summ + SymC.NotSay) : (Summ);
+                Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+                Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
+                Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+                Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            }
             return Summ;
         }
 
         public int Bronchitis(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
-            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
-            Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
-            Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
-            Summ = (Sym.Sputum) ? (Summ + SymC.Sputum) : (Summ);
+            if (Sym.RattlingInLungs)
+            {
+                Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+                Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
+                Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
+                Summ = (Sym.Sputum) ? (Summ + SymC.Sputum) : (Summ);
+            }
             return Summ;
         }
 
