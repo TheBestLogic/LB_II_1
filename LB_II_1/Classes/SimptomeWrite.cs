@@ -13,31 +13,26 @@ namespace LB_II_1.Classes
         {
             public bool Rheum;//насморк
             public bool Cough;//кашель
-            public bool ASoreThroat;//боль в горле
+            public bool ASoreThroatPain;//боль в горле
             public bool FeverTemperature;//жар
-            public bool LowTemperature;//Низкая Температура
             public bool JointPain;//Боль в суставах
-            public bool HighBloodPressure;//Высокое артериально давтение
-            public bool LowBloodPressure;//Низкое артериально давтение
             public bool SoreThroat;//Воспаление горла
             public bool Sputum;//Макрота
             public bool RattlingInLungs;//Хрип в легких
-            public bool Vomiting; //рвота
+            public bool PainInLungs;//Боль в легких
+            public bool NotSay;//Немота
 
             public void SetStructFlag(SYMPTOME Sym)
             {
                 Rheum = Sym.Rheum;
                 Cough = Sym.Cough;
-                ASoreThroat = Sym.ASoreThroat;
+                ASoreThroatPain = Sym.ASoreThroatPain;
                 FeverTemperature = Sym.FeverTemperature;
-                LowTemperature = Sym.LowTemperature;
                 JointPain = Sym.JointPain;
-                HighBloodPressure = Sym.HighBloodPressure;
-                LowBloodPressure = Sym.LowBloodPressure;
                 SoreThroat = Sym.SoreThroat;
                 Sputum = Sym.Sputum;
                 RattlingInLungs = Sym.RattlingInLungs;
-                Vomiting = Sym.Vomiting;
+                NotSay = Sym.NotSay;
             }
 
 
@@ -47,31 +42,26 @@ namespace LB_II_1.Classes
         {
             public short Rheum;//насморк
             public short Cough;//кашель
-            public short ASoreThroat;//боль в горле
+            public short ASoreThroatPain;//боль в горле
             public short FeverTemperature;//жар
-            public short LowTemperature;//Низкая Температура
             public short JointPain;//Боль в суставах
-            public short HighBloodPressure;//Высокое артериально давтение
-            public short LowBloodPressure;//Низкое артериально давтение
             public short SoreThroat;//Воспаление горла
             public short Sputum;//Макрота
             public short RattlingInLungs;//Хрип в легких
-            public short Vomiting; //рвота
+            public short PainInLungs;//Боль в легких
+            public short NotSay;//Немота
 
             public void SetStructCost(SYMPTOME_COST Sym)
             {
                 Rheum = Sym.Rheum;
                 Cough = Sym.Cough;
-                ASoreThroat = Sym.ASoreThroat;
+                ASoreThroatPain = Sym.ASoreThroatPain;
                 FeverTemperature = Sym.FeverTemperature;
-                LowTemperature = Sym.LowTemperature;
                 JointPain = Sym.JointPain;
-                HighBloodPressure = Sym.HighBloodPressure;
-                LowBloodPressure = Sym.LowBloodPressure;
                 SoreThroat = Sym.SoreThroat;
                 Sputum = Sym.Sputum;
                 RattlingInLungs = Sym.RattlingInLungs;
-                Vomiting = Sym.Vomiting;
+                NotSay = Sym.NotSay;
             }
         };
 
@@ -83,109 +73,76 @@ namespace LB_II_1.Classes
                                 //3-Грипп
                                 //4-Фарингит
                                 //5-Бронхит
-                                //6-Гайморит
             SYMPTOME_COST SymCost;
         };
 
-        public int CheckDisease(SYMPTOME Sym)
+        public int CheckDisease(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int MayBeItResult = 0;
             //
-            Pneumonia(Sym);
-            Angina(Sym);
-            Flu(Sym);
-            Pharyngitis(Sym);
-            Bronchitis(Sym);
-            Genyantritis(Sym);
+            Pneumonia(Sym, SymC);
+            Angina(Sym, SymC);
+            Flu(Sym, SymC);
+            Pharyngitis(Sym, SymC);
+            Bronchitis(Sym, SymC);
             //
             return MayBeItResult;
         }
-
-        bool Pneumonia(SYMPTOME Sym)//Воспаление легких
-        {
-            bool Flag = Sym.Rheum & Sym.Cough & Sym.ASoreThroat & Sym.FeverTemperature & Sym.LowTemperature & Sym.JointPain;
-            Flag = Flag & Sym.HighBloodPressure & Sym.LowBloodPressure & Sym.SoreThroat & Sym.Sputum & Sym.RattlingInLungs & Sym.Vomiting;
-            if (Flag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool Angina(SYMPTOME Sym)//ангина
-        {
-            bool Flag = Sym.Rheum & Sym.Cough & Sym.ASoreThroat & Sym.FeverTemperature & Sym.LowTemperature & Sym.JointPain;
-            Flag = Flag & Sym.HighBloodPressure & Sym.LowBloodPressure & Sym.SoreThroat & Sym.Sputum & Sym.RattlingInLungs & Sym.Vomiting;
-            if (Flag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool Flu(SYMPTOME Sym)//Грипп
-        {
-            bool Flag = Sym.Rheum & Sym.Cough & Sym.ASoreThroat & Sym.FeverTemperature & Sym.LowTemperature & Sym.JointPain;
-            Flag = Flag & Sym.HighBloodPressure & Sym.LowBloodPressure & Sym.SoreThroat & Sym.Sputum & Sym.RattlingInLungs & Sym.Vomiting;
-            if (Flag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool Pharyngitis(SYMPTOME Sym)//Фарингит
-        {
-            bool Flag = Sym.Rheum & Sym.Cough & Sym.ASoreThroat & Sym.FeverTemperature & Sym.LowTemperature & Sym.JointPain;
-            Flag = Flag & Sym.HighBloodPressure & Sym.LowBloodPressure & Sym.SoreThroat & Sym.Sputum & Sym.RattlingInLungs & Sym.Vomiting;
-            if (Flag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool Bronchitis(SYMPTOME Sym)//Бронхит
-        {
-            bool Flag = Sym.Rheum & Sym.Cough & Sym.ASoreThroat & Sym.FeverTemperature & Sym.LowTemperature & Sym.JointPain;
-            Flag = Flag & Sym.HighBloodPressure & Sym.LowBloodPressure & Sym.SoreThroat & Sym.Sputum & Sym.RattlingInLungs & Sym.Vomiting;
-            if (Flag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        bool Genyantritis(SYMPTOME Sym)//Гайморит
-        {
-            bool Flag = Sym.Rheum & Sym.Cough & Sym.ASoreThroat & Sym.FeverTemperature & Sym.LowTemperature & Sym.JointPain;
-            Flag = Flag & Sym.HighBloodPressure & Sym.LowBloodPressure & Sym.SoreThroat & Sym.Sputum & Sym.RattlingInLungs & Sym.Vomiting;
-            if (Flag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-
         
+       public int Pneumonia(SYMPTOME Sym, SYMPTOME_COST SymC)
+        {
+            int Summ = 0;
+            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
+            Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
+            return Summ;
+        }
+
+        public int Angina(SYMPTOME Sym, SYMPTOME_COST SymC)
+        {
+            int Summ = 0;
+            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+            Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+            Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
+            Summ = (Sym.JointPain) ? (Summ + SymC.JointPain) : (Summ);
+            return Summ;
+        }
+        
+
+        public int Flu(SYMPTOME Sym, SYMPTOME_COST SymC)
+        {
+            int Summ = 0;
+            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+            Summ = (Sym.Rheum) ? (Summ + SymC.Rheum) : (Summ);
+            Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            return Summ;
+        }
+
+        public int Pharyngitis(SYMPTOME Sym, SYMPTOME_COST SymC)
+        {
+            int Summ = 0;
+            Summ = (Sym.NotSay) ? (Summ + SymC.NotSay) : (Summ);
+            Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+            Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
+            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            return Summ;
+        }
+
+        public int Bronchitis(SYMPTOME Sym, SYMPTOME_COST SymC)
+        {
+            int Summ = 0;
+            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
+            Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
+            Summ = (Sym.Sputum) ? (Summ + SymC.Sputum) : (Summ);
+            return Summ;
+        }
+
+
+
+
     }
 }
