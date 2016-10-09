@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
 
 namespace LB_II_1
 {
@@ -15,6 +16,16 @@ namespace LB_II_1
         public StatForm()
         {
             InitializeComponent();
+        }
+
+        private void StatForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StatForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

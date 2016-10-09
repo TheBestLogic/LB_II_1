@@ -37,6 +37,8 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "StatForm";
             this.Text = "StartForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StatForm_FormClosed);
+            this.Load += new System.EventHandler(this.StatForm_Load);
             this.ResumeLayout(false);
 
         }
