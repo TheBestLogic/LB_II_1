@@ -63,11 +63,23 @@
   <ItemGroup>
     <Compile Include="Classes\DatabaseInteraction.cs" />
     <Compile Include="Classes\SimptomeWrite.cs" />
-    <Compile Include="Forms\StatForm.cs">
+    <Compile Include="Forms\Diagnostic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StatForm.Designer.cs">
-      <DependentUpon>StatForm.cs</DependentUpon>
+    <Compile Include="Forms\Diagnostic.Designer.cs">
+      <DependentUpon>Diagnostic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SeenDatabaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SeenDatabaseForm.Designer.cs">
+      <DependentUpon>SeenDatabaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Forms\SymptomCostSetForm.cs">
@@ -77,8 +89,8 @@
       <DependentUpon>SymptomCostSetForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\StatForm.resx">
-      <DependentUpon>StatForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,6 +1,6 @@
-﻿namespace LB_II_1
+﻿namespace LB_II_1.Forms
 {
-    partial class StatForm
+    partial class Diagnostic
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // StatForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "StatForm";
-            this.Text = "StartForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StatForm_FormClosed);
-            this.Load += new System.EventHandler(this.StatForm_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "Diagnostic";
         }
 
         #endregion
     }
 }
-

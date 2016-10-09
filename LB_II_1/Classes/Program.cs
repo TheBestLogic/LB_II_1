@@ -17,7 +17,8 @@ namespace LB_II_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StatForm());
+            Application.Run(new StartForm());
+            //Application.ApplicationExit();
         }
     }
 }
