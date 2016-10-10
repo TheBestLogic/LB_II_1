@@ -35,6 +35,7 @@ namespace LB_II_1.Classes
                 Sputum = Sym.Sputum;
                 RattlingInLungs = Sym.RattlingInLungs;
                 NotSay = Sym.NotSay;
+                PainInLungs = Sym.PainInLungs;
             }
 
 
@@ -53,6 +54,7 @@ namespace LB_II_1.Classes
             public short PainInLungs;//Боль в легких
             public short NotSay;//Немота
 
+
             public void SetStructCost(SYMPTOME_COST Sym)
             {
                 Rheum = Sym.Rheum;
@@ -64,6 +66,7 @@ namespace LB_II_1.Classes
                 Sputum = Sym.Sputum;
                 RattlingInLungs = Sym.RattlingInLungs;
                 NotSay = Sym.NotSay;
+                PainInLungs = Sym.PainInLungs;
             }
         };
 
