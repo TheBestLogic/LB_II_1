@@ -3,36 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Data.SqlClient;
 
 namespace LB_II_1.Classes
 {
     class DatabaseInteraction
     {
-        
+
+        public SqlConnection Connection;
+
+
         public int CreateConn()
         {
-            SqlConnection myConnection = new SqlConnection("user id=username;" +
-                                       "password=password;server=serverurl;" +
-                                       "Trusted_Connection=yes;" +
-                                       "database=database; " +
-                                       "connection timeout=30");
+            Connection = new SqlConnection(GetConnectionString());
             try
             {
-                myConnection.Open();
+                Connection.Open();
             }
-            catch (Exception e)
+            catch (SqlException se)
             {
-                Console.WriteLine(e.ToString());
+                if (se.Number == 4060)
+                {
+                    ExeptionCreateDatabase();
+                    Connection = new SqlConnection(GetConnectionString());
+                    Connection.Open();
+                }
             }
-            // SqlCommand myCommand = new SqlCommand("Command String", myConnection);
-
+            finally
+            {
+                
+            }
             return 0;
         }
 
         public int GetTable()
         {
-
+            
             return 0;
         }
 
@@ -44,13 +51,43 @@ namespace LB_II_1.Classes
 
         public int LostConn()
         {
-
+            Connection.Close();
+            Connection.Dispose();
             return 0;
         }
 
-        static private string GetConnectionString()
+        private void ExeptionCreateDatabase()
         {
-            return "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Projects\\VisualStudio\\LB_II_1\\LB_II_1\\Database\\Database.mdf;Integrated Security=True";
+            Connection.Close();
+            Connection = new SqlConnection(GetConnectionString());
+            SqlCommand cmdCreateDataBase = new SqlCommand(string.Format("CREATE DATABASE [{0}]", "Database"), Connection);
+            Connection.Open();
+            cmdCreateDataBase.ExecuteNonQuery();
+            Connection.Close();
+            Thread.Sleep(5000);
         }
+        
+        private string GetConnectionString()
+        {
+            return @"Data Source=(LocalDB)\\MSSQLLocalDB"
+                    + "AttachDbFilename=D:\\Projects\\VisualStudio\\LB_II_1\\LB_II_1\\Database\\Database.mdf;"
+                    + "Integrated Security=True";
+        }
+
+        private string GetCreateDatabaseString()
+        {
+            return "";
+        }
+
+        private string GetCreateSymTableString()
+        {
+            return "";
+        }
+
+        private string GetCreateSymCostTableString()
+        {
+            return "";
+        }
+
     }
 }
