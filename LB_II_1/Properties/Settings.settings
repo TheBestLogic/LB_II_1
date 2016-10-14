@@ -1,7 +1,27 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LB_II_1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ExeDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DBDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DBLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DBName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Database.mdf</Value>
+    </Setting>
+    <Setting Name="DBLogN" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Database_log.ldf</Value>
+    </Setting>
+    <Setting Name="WayToDB" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\Database\\</Value>
+    </Setting>
+    <Setting Name="DBN" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Database</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

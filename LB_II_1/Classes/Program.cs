@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static LB_II_1.Classes.SimptomeWrite;
 
 namespace LB_II_1
 {
@@ -17,8 +16,9 @@ namespace LB_II_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Classes.ResourcesConfigEditClass.GetProdjectDir();
+            Classes.ResourcesConfigEditClass.GetDatabaseDir();
             Application.Run(new StartForm());
-            //Application.ApplicationExit();
         }
     }
 }

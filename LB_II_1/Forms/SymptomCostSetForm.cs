@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace LB_II_1.Forms
 {
     public partial class SymptomCostSetForm : Form
     {
-        public SymptomCostSetForm()
+        public SymptomCostSetForm(SqlConnection Connection)
         {
             InitializeComponent();
         }
