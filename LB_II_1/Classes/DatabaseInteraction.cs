@@ -21,17 +21,13 @@ namespace LB_II_1.Classes
             }
             catch (SqlException se)
             {
-                MessageBox.Show("Connection exeption: "+se.Number.ToString());
+                MessageBox.Show("Connection exeption: "+se.Number.ToString()+"\n"+se.Message);
                 if (se.Number == 4060)
                 {
                     ExeptionCreateDatabase(Connection);
                     Connection = new SqlConnection(GetConnectionString());
                     Connection.Open();
                 }
-            }
-            finally
-            {
-                
             }
             return Connection;
         }
@@ -48,7 +44,7 @@ namespace LB_II_1.Classes
             return 0;
         }
 
-        public int LostConn(SqlConnection Connection)
+        public static int LostConn(SqlConnection Connection)
         {
             Connection.Close();
             Connection.Dispose();
@@ -68,7 +64,7 @@ namespace LB_II_1.Classes
             }
             catch (SqlException se)
             {
-                MessageBox.Show("CreateDatabase exeption: " + se.Number.ToString());
+                MessageBox.Show("CreateDatabase exeption: " + se.Number.ToString() + "\n" + se.Message);
                 return;
             }
             Connection.Close();
@@ -78,9 +74,9 @@ namespace LB_II_1.Classes
 
         private static string GetConnectionString()
         {
-            return @"Data Source=(LocalDB)\\MSSQLLocalDB"
-                    + "AttachDbFilename=D:\\Projects\\VisualStudio\\LB_II_1\\LB_II_1\\Database\\Database.mdf;"
-                    + "Integrated Security=True";
+            return "Data Source=(LocalDB)\\MSSQLLocalDB;"
+                    + "AttachDbFilename="+ Properties.Settings.Default.DBDir + ";"
+                    + " Integrated Security=True";
         }
 
         private static string GetCreateDatabaseString()
@@ -118,7 +114,7 @@ namespace LB_II_1.Classes
             }
             catch (SqlException se)
             {
-                MessageBox.Show("CreateTable exeption: " + se.Number.ToString());
+                MessageBox.Show("CreateTable exeption: " + se.Number.ToString() + "\n" + se.Message);
                 return;
             }
         }

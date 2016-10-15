@@ -11,11 +11,11 @@
 
         public static string GetDatabaseDir()
         {
-            Properties.Settings.Default.DBDir = Properties.Settings.Default.ExeDir +
-                                                Properties.Settings.Default.WayToDB +
+            Properties.Settings.Default.DBDir = Properties.Settings.Default.ExeDir + '\\' +
+                                                Properties.Settings.Default.DBN + '\\' +
                                                 Properties.Settings.Default.DBName;
-            Properties.Settings.Default.DBLog = Properties.Settings.Default.ExeDir +
-                                                Properties.Settings.Default.WayToDB +
+            Properties.Settings.Default.DBLog = Properties.Settings.Default.ExeDir + '\\' +
+                                                Properties.Settings.Default.DBN + '\\' +
                                                 Properties.Settings.Default.DBLogN;
             Properties.Settings.Default.Save();
             return Properties.Settings.Default.DBDir;

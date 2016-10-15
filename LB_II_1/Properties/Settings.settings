@@ -18,7 +18,7 @@
       <Value Profile="(Default)">Database_log.ldf</Value>
     </Setting>
     <Setting Name="WayToDB" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">\\Database\\</Value>
+      <Value Profile="(Default)">\Database\</Value>
     </Setting>
     <Setting Name="DBN" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Database</Value>

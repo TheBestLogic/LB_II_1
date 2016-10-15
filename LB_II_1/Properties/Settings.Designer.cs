@@ -79,7 +79,7 @@ namespace LB_II_1.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\Database\\\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Database\\")]
         public string WayToDB {
             get {
                 return ((string)(this["WayToDB"]));

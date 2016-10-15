@@ -89,9 +89,36 @@
     <Compile Include="Forms\SymptomCostSetForm.Designer.cs">
       <DependentUpon>SymptomCostSetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Local\Local_ENG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Local_ENG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Local\Local_RU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Local_RU.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Diagnostic.resx">
+      <DependentUpon>Diagnostic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SeenDatabaseForm.resx">
+      <DependentUpon>SeenDatabaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SymptomCostSetForm.resx">
+      <DependentUpon>SymptomCostSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Local\Local_ENG.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Local_ENG.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Local\Local_RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Local_RU.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,9 +143,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Local\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>

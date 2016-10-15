@@ -18,26 +18,29 @@ namespace LB_II_1
     public partial class StartForm : Form
     {
         public SqlConnection Connection;
+        private bool Locale;
 
         public StartForm()
         {
+            Locale = true;
             InitializeComponent();
-            
+            SetTextLocale(Locale);
         }
 
         private void StatForm_Load(object sender, EventArgs e)
         {
+            Connection = CreateConn(Connection);
         }
 
         private void StatForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            LostConn(Connection);
         }
 
         private void SymptomeEdit_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            SymptomCostSetForm _SymptomCostSetForm = new SymptomCostSetForm(Connection);
+            SymptomCostSetForm _SymptomCostSetForm = new SymptomCostSetForm(Connection, Locale, Location);
             _SymptomCostSetForm.ShowDialog();
             this.Visible = true;
         }
@@ -45,7 +48,7 @@ namespace LB_II_1
         private void SeenDatabase_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            SeenDatabaseForm _SeenDatabaseForm = new SeenDatabaseForm(Connection);
+            SeenDatabaseForm _SeenDatabaseForm = new SeenDatabaseForm(Connection, Locale, Location);
             _SeenDatabaseForm.ShowDialog();
             this.Visible = true;
         }
@@ -53,9 +56,15 @@ namespace LB_II_1
         private void Diagnostic_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Diagnostic _Diagnostic = new Diagnostic(Connection);
+            Diagnostic _Diagnostic = new Diagnostic(Connection, Locale, Location);
             _Diagnostic.ShowDialog();
             this.Visible = true;
+        }
+
+        private void Local_button_Click(object sender, EventArgs e)
+        {
+            Locale = !Locale;
+            SetTextLocale(Locale);
         }
     }
 }

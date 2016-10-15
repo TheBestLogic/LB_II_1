@@ -13,9 +13,11 @@ namespace LB_II_1.Forms
 {
     public partial class SeenDatabaseForm : Form
     {
-        public SeenDatabaseForm(SqlConnection Connection)
+        public SeenDatabaseForm(SqlConnection Connection, bool GetLocale, Point Location)
         {
             InitializeComponent();
+            SetTextLocale(GetLocale);
+            this.Location = Location;
         }
     }
 }
