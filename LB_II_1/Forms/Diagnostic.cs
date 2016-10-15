@@ -6,8 +6,10 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LB_II_1.Classes;
 using static LB_II_1.Classes.SimptomeWrite;
 
 namespace LB_II_1.Forms
@@ -72,6 +74,36 @@ namespace LB_II_1.Forms
         private void Sputum_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             Sym.Sputum = !Sym.Sputum;
+        }
+
+        private void Diagnostic_button_Click(object sender, EventArgs e)
+        {
+            EnabledFunction();
+            SimptomeWrite.CheckDisease(Sym);
+
+
+            Thread.Sleep(5000);
+            EnabledFunction();
+        }
+
+        private void CheckDisease(SYMPTOME sYMPTOME, SYMPTOME sym, SYMPTOME_COST sYMPTOME_COST, object symC)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void EnabledFunction()
+        {
+            this.Rheum_checkBox.Enabled = !this.Rheum_checkBox.Enabled;
+            this.FeverTemperature_checkBox.Enabled = !this.FeverTemperature_checkBox.Enabled;
+            this.JointPain_checkBox.Enabled = !this.JointPain_checkBox.Enabled;
+            this.ASoreThroatPain_checkBox.Enabled = !this.ASoreThroatPain_checkBox.Enabled;
+            this.SoreThroat_checkBox.Enabled = !this.SoreThroat_checkBox.Enabled;
+            this.NotSay_checkBox.Enabled = !this.NotSay_checkBox.Enabled;
+            this.Cough_checkBox.Enabled = !this.Cough_checkBox.Enabled;
+            this.RattlingInLungs_checkBox.Enabled = !this.RattlingInLungs_checkBox.Enabled;
+            this.PainInLungs_checkBox.Enabled = !this.PainInLungs_checkBox.Enabled;
+            this.Sputum_checkBox.Enabled = !this.Sputum_checkBox.Enabled;
+            this.Diagnostic_button.Enabled = !this.Diagnostic_button.Enabled;
         }
     }
 }

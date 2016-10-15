@@ -51,6 +51,7 @@
             this.RattlingInLungs_checkBox = new System.Windows.Forms.CheckBox();
             this.PainInLungs_checkBox = new System.Windows.Forms.CheckBox();
             this.Sputum_checkBox = new System.Windows.Forms.CheckBox();
+            this.Diagnostic_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Rheum_checkBox
@@ -163,11 +164,22 @@
             this.Sputum_checkBox.UseVisualStyleBackColor = true;
             this.Sputum_checkBox.CheckedChanged += new System.EventHandler(this.Sputum_checkBox_CheckedChanged);
             // 
+            // Diagnostic_button
+            // 
+            this.Diagnostic_button.Location = new System.Drawing.Point(144, 31);
+            this.Diagnostic_button.Name = "Diagnostic_button";
+            this.Diagnostic_button.Size = new System.Drawing.Size(128, 23);
+            this.Diagnostic_button.TabIndex = 10;
+            this.Diagnostic_button.Text = "Diagnostic_button";
+            this.Diagnostic_button.UseVisualStyleBackColor = true;
+            this.Diagnostic_button.Click += new System.EventHandler(this.Diagnostic_button_Click);
+            // 
             // Diagnostic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 277);
+            this.Controls.Add(this.Diagnostic_button);
             this.Controls.Add(this.Sputum_checkBox);
             this.Controls.Add(this.PainInLungs_checkBox);
             this.Controls.Add(this.RattlingInLungs_checkBox);
@@ -198,5 +210,6 @@
         private System.Windows.Forms.CheckBox RattlingInLungs_checkBox;
         private System.Windows.Forms.CheckBox PainInLungs_checkBox;
         private System.Windows.Forms.CheckBox Sputum_checkBox;
+        private System.Windows.Forms.Button Diagnostic_button;
     }
 }

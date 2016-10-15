@@ -82,6 +82,20 @@ namespace LB_II_1.Classes
                 NotSay = Sym.NotSay;
                 PainInLungs = Sym.PainInLungs;
             }
+
+            public void Clear()
+            {
+                Rheum = 0;
+                Cough = 0;
+                ASoreThroatPain = 0;
+                FeverTemperature = 0;
+                JointPain = 0;
+                SoreThroat = 0;
+                Sputum = 0;
+                RattlingInLungs = 0;
+                NotSay = 0;
+                PainInLungs = 0;
+            }
         };
 
         public struct DISEASE
@@ -95,8 +109,12 @@ namespace LB_II_1.Classes
             SYMPTOME_COST SymCost;
         };
 
-        public int CheckDisease(SYMPTOME Sym, SYMPTOME_COST SymC)
+        public static int CheckDisease(SYMPTOME Sym)
         {
+            ////
+            SYMPTOME_COST SymC = new SYMPTOME_COST();
+            SymC.Clear();
+            ////
             int MayBeItResult = 0;
             int[] mass = { Pneumonia(Sym, SymC), Angina(Sym, SymC), Flu(Sym, SymC), Pharyngitis(Sym, SymC) , Bronchitis(Sym, SymC)}; 
             //
@@ -105,7 +123,7 @@ namespace LB_II_1.Classes
             return MayBeItResult;
         }
         
-       public int Pneumonia(SYMPTOME Sym, SYMPTOME_COST SymC)
+       private static int Pneumonia(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
             if (Sym.RattlingInLungs)
@@ -118,7 +136,7 @@ namespace LB_II_1.Classes
             return Summ;
         }
 
-        public int Angina(SYMPTOME Sym, SYMPTOME_COST SymC)
+        private static int Angina(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
             if (Sym.FeverTemperature && Sym.SoreThroat)
@@ -130,9 +148,9 @@ namespace LB_II_1.Classes
             }
             return Summ;
         }
-        
 
-        public int Flu(SYMPTOME Sym, SYMPTOME_COST SymC)
+
+        private static int Flu(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
             if (Sym.FeverTemperature)
@@ -145,7 +163,7 @@ namespace LB_II_1.Classes
             return Summ;
         }
 
-        public int Pharyngitis(SYMPTOME Sym, SYMPTOME_COST SymC)
+        private static int Pharyngitis(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
             if (Sym.SoreThroat)
@@ -159,7 +177,7 @@ namespace LB_II_1.Classes
             return Summ;
         }
 
-        public int Bronchitis(SYMPTOME Sym, SYMPTOME_COST SymC)
+        private static int Bronchitis(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
             if (Sym.RattlingInLungs)
