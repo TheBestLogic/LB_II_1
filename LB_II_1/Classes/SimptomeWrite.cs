@@ -38,6 +38,20 @@ namespace LB_II_1.Classes
                 PainInLungs = Sym.PainInLungs;
             }
 
+            public void Clear()
+            {
+                Rheum = false;
+                Cough = false;
+                ASoreThroatPain = false;
+                FeverTemperature = false;
+                JointPain = false;
+                SoreThroat = false;
+                Sputum = false;
+                RattlingInLungs = false;
+                NotSay = false;
+                PainInLungs = false;
+            }
+
 
         };
 
