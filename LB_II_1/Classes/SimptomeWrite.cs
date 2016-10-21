@@ -13,6 +13,7 @@ namespace LB_II_1.Classes
 
         public struct SYMPTOME  //симптомы
         {
+            public short ID;
             public bool Rheum;//насморк
             public bool Cough;//кашель
             public bool ASoreThroatPain;//боль в горле
@@ -57,6 +58,7 @@ namespace LB_II_1.Classes
 
         public struct SYMPTOME_COST //стоимость симптома 
         {
+            public short ID;
             public short Rheum;//насморк
             public short Cough;//кашель
             public short ASoreThroatPain;//боль в горле
@@ -158,6 +160,7 @@ namespace LB_II_1.Classes
                 Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
                 Summ = (Sym.Rheum) ? (Summ + SymC.Rheum) : (Summ);
                 Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+                Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
                 Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
             }
             return Summ;

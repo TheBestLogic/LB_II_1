@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LB_II_1.Classes.DatabaseInteraction;
+using static LB_II_1.Classes.SimptomeWrite;
 
 namespace LB_II_1
 {
@@ -29,7 +30,9 @@ namespace LB_II_1
 
         private void StatForm_Load(object sender, EventArgs e)
         {
+            SYMPTOME_COST[] SymC = new SYMPTOME_COST[5];
             Connection = CreateConn(Connection);
+            NeedNewTables(Connection);
         }
 
         private void StatForm_FormClosed(object sender, FormClosedEventArgs e)
