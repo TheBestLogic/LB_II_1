@@ -163,101 +163,130 @@ namespace LB_II_1.Classes
             }
         }
 
-        public static SYMPTOME_COST[] GetTables(SqlConnection Connection, SYMPTOME_COST[] SymC)
+        public static void GetSoloOrAllTables(SqlConnection Connection, int flag = 0, SYMPTOME_COST SymC = default(SYMPTOME_COST), SYMPTOME_COST[] SymCM = default(SYMPTOME_COST[]))
         {
-            string sqlExpression = "SELECT * FROM TableCost";
-            int i = 0;
+            string sqlExpression = "SELECT * FROM TableCost", Ex= "\n\nGetSoloOrAllTables(flag== "+flag+" ):\n";
+            if (flag > 0 && flag < 6)
+            {
+                sqlExpression +=" WHERE Id = " + flag + ';';
+            }
             SqlCommand command = new SqlCommand(sqlExpression, Connection);
             try
             {
+                Ex += "\tConnection.Open()\n";
                 Connection.Open();
+                Ex += "\tcommand.ExecuteReader()\n";
                 SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        SymC[i].ID = reader.GetInt16(0);//[Id]
-                        SymC[i].Rheum = reader.GetInt16(1);//[RheumCount]  
-                        SymC[i].Cough = reader.GetInt16(2);//[CoughCount]
-                        SymC[i].ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
-                        SymC[i].FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
-                        SymC[i].JointPain = reader.GetInt16(5);//[JointPainCount]
-                        SymC[i].SoreThroat = reader.GetInt16(6);//[SoreThroatCount]
-                        SymC[i].Sputum = reader.GetInt16(7);//[SputumCount]
-                        SymC[i].RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
-                        SymC[i].PainInLungs = reader.GetInt16(9);//[PainInLungsCount]
-                        SymC[i].NotSay = reader.GetInt16(10);//[NotSayCount]
-                        ++i;
-                    }
-                Connection.Close();
-            }
-            catch(SqlException se)
-            {
-                MessageBox.Show("GetTables - " + "SELECT exeption: " + se.Number.ToString() + "\n" + se.Message);
-                Connection.Close();
-            }
-
-            return SymC;
-            
-        }
-
-        public static SYMPTOME_COST GetSoloTable(SqlConnection Connection, SYMPTOME_COST SymC, int DeseareIndex)
-        {
-            SymC.Clear();
-            string sqlExpression = "SELECT * FROM TableCost WHERE Id =" + DeseareIndex + ';';
-            SqlCommand command = new SqlCommand(sqlExpression, Connection);
-            try
-            {
-                Connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                switch (DeseareIndex)
+                Ex += "\tswitch (flag)\n";
+                switch (flag)
                 {
                     case 1://Pneumonia
+                        Ex += "\t\tcase 1\n";
                         if (reader.Read())
                         {
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
                             SymC.RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
                             SymC.PainInLungs = reader.GetInt16(9);//[PainInLungsCount]
+                            Ex += "\t\t\treader.Read()\n";
+                        }
+                        else
+                        {
+                            Ex += "\t\t\t!reader.Read()\n";
                         }
                         break;
                     case 2://Angina
+                        Ex += "\t\tcase 2\n";
                         if (reader.Read())
                         {
                             SymC.ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
                             SymC.JointPain = reader.GetInt16(5);//[JointPainCount]
                             SymC.SoreThroat = reader.GetInt16(6);//[SoreThroatCount]
+                            Ex += "\t\t\treader.Read()\n";
+                        }
+                        else
+                        {
+                            Ex += "\t\t\t!reader.Read()\n";
                         }
                         break;
                     case 3://Flu
+                        Ex += "\t\tcase 3\n";
                         if (reader.Read())
-                        { 
+                        {
                             SymC.Rheum = reader.GetInt16(1);//[RheumCount]  
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
                             SymC.SoreThroat = reader.GetInt16(6);//[SoreThroatCount]
+                            Ex += "\t\t\treader.Read()\n";
+                        }
+                        else
+                        {
+                            Ex += "\t\t\t!reader.Read()\n";
                         }
                         break;
                     case 4://Pharyngitis
+                        Ex += "\t\tcase 4\n";
                         if (reader.Read())
-                        { 
+                        {
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
                             SymC.SoreThroat = reader.GetInt16(6);//[SoreThroatCount]
                             SymC.NotSay = reader.GetInt16(10);//[NotSayCount]
+                            Ex += "\t\t\treader.Read()\n";
+                        }
+                        else
+                        {
+                            Ex += "\t\t\t!reader.Read()\n";
                         }
                         break;
                     case 5://Bronchitis
+                        Ex += "\t\tcase 5\n";
                         if (reader.Read())
                         {
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.Sputum = reader.GetInt16(7);//[SputumCount]
                             SymC.RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
                             SymC.PainInLungs = reader.GetInt16(9);//[PainInLungsCount]
+                            Ex += "\t\t\treader.Read()\n";
+                        }
+                        else
+                        {
+                            Ex += "\t\t\t!reader.Read()\n";
+                        }
+                        break;
+                    case 6:
+                        int i = 0;
+                        Ex += "\t\tcase 6\n";
+                        if (reader.Read())
+                        {
+                            Ex += "\t\t\treader.Read()\n";
+                            while (reader.Read())
+                            {
+                                SymCM[i].ID = reader.GetInt16(0);//[Id]
+                                SymCM[i].Rheum = reader.GetInt16(1);//[RheumCount]  
+                                SymCM[i].Cough = reader.GetInt16(2);//[CoughCount]
+                                SymCM[i].ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
+                                SymCM[i].FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
+                                SymCM[i].JointPain = reader.GetInt16(5);//[JointPainCount]
+                                SymCM[i].SoreThroat = reader.GetInt16(6);//[SoreThroatCount]
+                                SymCM[i].Sputum = reader.GetInt16(7);//[SputumCount]
+                                SymCM[i].RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
+                                SymCM[i].PainInLungs = reader.GetInt16(9);//[PainInLungsCount]
+                                SymCM[i].NotSay = reader.GetInt16(10);//[NotSayCount]
+                                ++i;
+                                Ex += "\t\t\t\twhile(reader.Read(), i== "+i+" )\n";
+                            }
+                        }
+                        else
+                        {
+                            Ex += "\t\t\t!reader.Read()\n";
                         }
                         break;
                     default:
+                        Ex += "\t\tdefault\n";
                         if (reader.Read())
                         {
                             SymC.ID = reader.GetInt16(0);//[Id]
@@ -271,22 +300,28 @@ namespace LB_II_1.Classes
                             SymC.RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
                             SymC.PainInLungs = reader.GetInt16(9);//[PainInLungsCount]
                             SymC.NotSay = reader.GetInt16(10);//[NotSayCount]
+                            Ex += "\t\t\treader.Read()\n";
+                        }
+                        else
+                        {
+                            Ex += "\t\t\t!reader.Read()\n";
                         }
                         break;
                 }
+                    
                 Connection.Close();
             }
-            catch (SqlException se)
+            catch(SqlException se)
             {
-                MessageBox.Show("GetSoloTable "+ DeseareIndex + " - " + "SELECT exeption: " + se.Number.ToString() + "\n" + se.Message);
+                MessageBox.Show("GetSoloOrAllTables - " + "SELECT exeption: " + se.Number.ToString() + "\n" + se.Message + Ex);
                 Connection.Close();
             }
-            return SymC;
+            
         }
 
         public static void UpdateTable(SqlConnection Connection, SYMPTOME_COST SymC = default(SYMPTOME_COST), int flag = 0, SYMPTOME_COST[] SymCM = default(SYMPTOME_COST[]))
         {
-            string sqlExpression = null, Ex = null;
+            string sqlExpression = null, Ex = "\n\nUpdateTable(flag == "+flag+" ):\n";
             SqlCommand command2 = null;
             SqlCommand command3 = null;
             SqlCommand command4 = null;
@@ -391,25 +426,26 @@ namespace LB_II_1.Classes
                     SqlCommand command = new SqlCommand(sqlExpression, Connection);
                     try
                     {
+                        Ex += "\tConnection.Open()\n";
                         Connection.Open();
-                        Ex += "->\nUpdateTable1";
+                        Ex += "\tcommand.ExecuteNonQuery()\n";
                         command.ExecuteNonQuery();
                         if (flag == 6)
                         {
-                            Ex += "->\nUpdateTable2";
+                            Ex += "\t\tcommand2.ExecuteNonQuery()\n";
                             command2.ExecuteNonQuery();
-                            Ex += "->\nUpdateTable3";
+                            Ex += "-\t\tcommand3.ExecuteNonQuery()\n";
                             command3.ExecuteNonQuery();
-                            Ex += "->\nUpdateTable4";
+                            Ex += "\t\tcommand4.ExecuteNonQuery()\n";
                             command4.ExecuteNonQuery();
-                            Ex += "->\nUpdateTable5";
+                            Ex += "\t\tcommand5.ExecuteNonQuery()\n";
                             command5.ExecuteNonQuery();
                         }
                         Connection.Close();
                     }
                     catch (SqlException se)
                     {
-                        MessageBox.Show("UpdateTable("+ flag+") - " + "Update exeption: " + se.Number.ToString() + "\n" + se.Message);
+                        MessageBox.Show("UpdateTable("+ flag+") - " + "Update exeption: " + se.Number.ToString() + "\n" + se.Message+Ex);
                         Connection.Close();
                     }
             }
