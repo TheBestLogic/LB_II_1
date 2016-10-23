@@ -16,7 +16,7 @@ namespace LB_II_1.Forms
     public partial class SymptomCostSetForm : Form
     {
         private bool Locale;
-        private int flag;
+        private short flag;
         SqlConnection Connection;
         public SymptomCostSetForm(SqlConnection _Connection, bool GetLocale, Point Location)
         {
@@ -31,7 +31,7 @@ namespace LB_II_1.Forms
         {
             SYMPTOME_COST SymC = new SYMPTOME_COST();
             SymC.New();
-            SymC = GetSoloOrAllTables(Connection, flag, SymC);
+            SymC = GetSoloOrAllTables(Connection, (int)flag, SymC);
             dataGridView.Rows[0].Cells[0].Value = Convert.ToString(SymC.ID);
             dataGridView.Rows[1].Cells[0].Value = Convert.ToString(SymC.Rheum);
             dataGridView.Rows[2].Cells[0].Value = Convert.ToString(SymC.Cough);
@@ -47,7 +47,27 @@ namespace LB_II_1.Forms
 
         private void SetButton_Click(object sender, EventArgs e)
         {
-
+            SYMPTOME_COST SymC = new SYMPTOME_COST();
+            SymC.New();
+            SymC.ID = flag;
+            SymC.Rheum = Convert.ToInt16(dataGridView.Rows[1].Cells[0].Value);
+            SymC.Cough = Convert.ToInt16(dataGridView.Rows[2].Cells[0].Value);
+            SymC.ASoreThroatPain = Convert.ToInt16(dataGridView.Rows[3].Cells[0].Value);
+            SymC.FeverTemperature = Convert.ToInt16(dataGridView.Rows[4].Cells[0].Value);
+            SymC.JointPain = Convert.ToInt16(dataGridView.Rows[5].Cells[0].Value);
+            SymC.SoreThroat = Convert.ToInt16(dataGridView.Rows[6].Cells[0].Value);
+            SymC.Sputum = Convert.ToInt16(dataGridView.Rows[7].Cells[0].Value);
+            SymC.RattlingInLungs = Convert.ToInt16(dataGridView.Rows[8].Cells[0].Value);
+            SymC.PainInLungs = Convert.ToInt16(dataGridView.Rows[9].Cells[0].Value);
+            SymC.NotSay = Convert.ToInt16(dataGridView.Rows[10].Cells[0].Value);
+            if(SupperRootCheckBox.Checked)
+            {
+                UpdateTable(Connection, SymC: SymC);
+            }
+            else
+            {
+                UpdateTable(Connection, flag, SymC);
+            }
         }
         
 

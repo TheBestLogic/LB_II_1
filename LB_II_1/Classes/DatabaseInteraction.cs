@@ -343,7 +343,7 @@ namespace LB_II_1.Classes
             {
                 case 1://Pneumonia
                     sqlExpression = "UPDATE TableCost SET " +
-                    ", CoughCount=" + SymC.Cough +
+                    " CoughCount=" + SymC.Cough +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
@@ -351,7 +351,7 @@ namespace LB_II_1.Classes
                     break;
                 case 2://Angina
                     sqlExpression = "UPDATE TableCost SET " +
-                    ", ASoreThroatCount=" + SymC.ASoreThroatPain +
+                    " ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", JointPainCount=" + SymC.JointPain +
                     ", SoreThroatCount=" + SymC.SoreThroat +
@@ -368,7 +368,7 @@ namespace LB_II_1.Classes
                     break;
                 case 4://Pharyngitis
                     sqlExpression = "UPDATE TableCost SET " +
-                    ", CoughCount=" + SymC.Cough +
+                    " CoughCount=" + SymC.Cough +
                     ", ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", SoreThroatCount=" + SymC.SoreThroat +
@@ -377,7 +377,7 @@ namespace LB_II_1.Classes
                     break;
                 case 5://Bronchitis
                     sqlExpression = "UPDATE TableCost SET " +
-                    ", CoughCount=" + SymC.Cough +
+                    " CoughCount=" + SymC.Cough +
                     ", SputumCount=" + SymC.Sputum +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
@@ -385,13 +385,13 @@ namespace LB_II_1.Classes
                     break;
                 case 6:
                     sqlExpression = "UPDATE TableCost SET " +
-                    ", CoughCount=" + SymC.Cough +
+                    " CoughCount=" + SymC.Cough +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
                     "WHERE Id =" + SymC.ID + ';';
                     string sqlExpression2 = "UPDATE TableCost SET " +
-                    ", ASoreThroatCount=" + SymC.ASoreThroatPain +
+                    " ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", JointPainCount=" + SymC.JointPain +
                     ", SoreThroatCount=" + SymC.SoreThroat +
@@ -404,14 +404,14 @@ namespace LB_II_1.Classes
                     ", SoreThroatCount=" + SymC.SoreThroat +
                     "WHERE Id =" + SymC.ID + ';';
                     string sqlExpression4 = "UPDATE TableCost SET " +
-                    ", CoughCount=" + SymC.Cough +
+                    " CoughCount=" + SymC.Cough +
                     ", ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", SoreThroatCount=" + SymC.SoreThroat +
                     ", NotSayCount=" + SymC.NotSay +
                     "WHERE Id =" + SymC.ID + ';';
                     string sqlExpression5 = "UPDATE TableCost SET " +
-                    ", CoughCount=" + SymC.Cough +
+                    " CoughCount=" + SymC.Cough +
                     ", SputumCount=" + SymC.Sputum +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +

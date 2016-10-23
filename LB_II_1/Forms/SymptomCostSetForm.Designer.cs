@@ -86,6 +86,7 @@
             this.DeseareComboBox = new System.Windows.Forms.ComboBox();
             this.GetButton = new System.Windows.Forms.Button();
             this.SetButton = new System.Windows.Forms.Button();
+            this.SupperRootCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,11 +128,21 @@
             this.SetButton.UseVisualStyleBackColor = true;
             this.SetButton.Click += new System.EventHandler(this.SetButton_Click);
             // 
+            // SupperRootCheckBox
+            // 
+            this.SupperRootCheckBox.AutoSize = true;
+            this.SupperRootCheckBox.Location = new System.Drawing.Point(244, 254);
+            this.SupperRootCheckBox.Name = "SupperRootCheckBox";
+            this.SupperRootCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.SupperRootCheckBox.TabIndex = 4;
+            this.SupperRootCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SymptomCostSetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 284);
+            this.Controls.Add(this.SupperRootCheckBox);
             this.Controls.Add(this.SetButton);
             this.Controls.Add(this.GetButton);
             this.Controls.Add(this.DeseareComboBox);
@@ -142,6 +153,7 @@
             this.Text = "SymptomCostSetForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -151,5 +163,6 @@
         private System.Windows.Forms.ComboBox DeseareComboBox;
         private System.Windows.Forms.Button GetButton;
         private System.Windows.Forms.Button SetButton;
+        private System.Windows.Forms.CheckBox SupperRootCheckBox;
     }
 }
