@@ -96,8 +96,6 @@ namespace LB_II_1.Classes
                     ", SoreThroatCount SMALLINT NULL DEFAULT 0" +
                     ", SputumCount SMALLINT NULL DEFAULT 0" +
                     ", RattlingInLungsCount SMALLINT NULL DEFAULT 0" +
-                    ", vomitingCountCount SMALLINT NULL DEFAULT 0" +
-                    ", ASoreThroatPain SMALLINT NULL DEFAULT 0" +
                     ", PainInLungsCount SMALLINT NULL DEFAULT 0" +
                     ", NotSayCount SMALLINT NULL DEFAULT 0"+")";
         }
@@ -347,7 +345,7 @@ namespace LB_II_1.Classes
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     break;
                 case 2://Angina
                     sqlExpression = "UPDATE TableCost SET " +
@@ -355,7 +353,7 @@ namespace LB_II_1.Classes
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", JointPainCount=" + SymC.JointPain +
                     ", SoreThroatCount=" + SymC.SoreThroat +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     break;
                 case 3://Flu
                     sqlExpression = "UPDATE TableCost SET " +
@@ -364,7 +362,7 @@ namespace LB_II_1.Classes
                     ", ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", SoreThroatCount=" + SymC.SoreThroat +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     break;
                 case 4://Pharyngitis
                     sqlExpression = "UPDATE TableCost SET " +
@@ -373,7 +371,7 @@ namespace LB_II_1.Classes
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", SoreThroatCount=" + SymC.SoreThroat +
                     ", NotSayCount=" + SymC.NotSay +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     break;
                 case 5://Bronchitis
                     sqlExpression = "UPDATE TableCost SET " +
@@ -381,7 +379,7 @@ namespace LB_II_1.Classes
                     ", SputumCount=" + SymC.Sputum +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     break;
                 case 6:
                     sqlExpression = "UPDATE TableCost SET " +
@@ -389,33 +387,33 @@ namespace LB_II_1.Classes
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     string sqlExpression2 = "UPDATE TableCost SET " +
                     " ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", JointPainCount=" + SymC.JointPain +
                     ", SoreThroatCount=" + SymC.SoreThroat +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     string sqlExpression3 = "UPDATE TableCost SET " +
                     "RheumCount=" + SymC.Rheum +
                     ", CoughCount=" + SymC.Cough +
                     ", ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", SoreThroatCount=" + SymC.SoreThroat +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     string sqlExpression4 = "UPDATE TableCost SET " +
                     " CoughCount=" + SymC.Cough +
                     ", ASoreThroatCount=" + SymC.ASoreThroatPain +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", SoreThroatCount=" + SymC.SoreThroat +
                     ", NotSayCount=" + SymC.NotSay +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     string sqlExpression5 = "UPDATE TableCost SET " +
                     " CoughCount=" + SymC.Cough +
                     ", SputumCount=" + SymC.Sputum +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     command2 = new SqlCommand(sqlExpression2, Connection);
                     command3 = new SqlCommand(sqlExpression3, Connection);
                     command4 = new SqlCommand(sqlExpression4, Connection);
@@ -433,7 +431,7 @@ namespace LB_II_1.Classes
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
                     ", NotSayCount=" + SymC.NotSay +
-                    "WHERE Id =" + SymC.ID + ';';
+                    " WHERE Id =" + SymC.ID + ';';
                     break;
             }
                     SqlCommand command = new SqlCommand(sqlExpression, Connection);

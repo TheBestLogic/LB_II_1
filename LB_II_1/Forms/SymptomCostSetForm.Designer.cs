@@ -92,6 +92,10 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AllowUserToResizeColumns = false;
+            this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(13, 13);
             this.dataGridView.Name = "dataGridView";
@@ -131,7 +135,7 @@
             // SupperRootCheckBox
             // 
             this.SupperRootCheckBox.AutoSize = true;
-            this.SupperRootCheckBox.Location = new System.Drawing.Point(244, 254);
+            this.SupperRootCheckBox.Location = new System.Drawing.Point(244, 239);
             this.SupperRootCheckBox.Name = "SupperRootCheckBox";
             this.SupperRootCheckBox.Size = new System.Drawing.Size(15, 14);
             this.SupperRootCheckBox.TabIndex = 4;

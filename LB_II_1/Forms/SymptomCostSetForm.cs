@@ -31,7 +31,14 @@ namespace LB_II_1.Forms
         {
             SYMPTOME_COST SymC = new SYMPTOME_COST();
             SymC.New();
-            SymC = GetSoloOrAllTables(Connection, (int)flag, SymC);
+            if (SupperRootCheckBox.Checked)
+            {
+                SymC = GetSoloOrAllTables(Connection, SymC: SymC);
+            }
+            else
+            {
+                SymC = GetSoloOrAllTables(Connection, (int)flag, SymC);
+            }
             dataGridView.Rows[0].Cells[0].Value = Convert.ToString(SymC.ID);
             dataGridView.Rows[1].Cells[0].Value = Convert.ToString(SymC.Rheum);
             dataGridView.Rows[2].Cells[0].Value = Convert.ToString(SymC.Cough);
@@ -50,16 +57,16 @@ namespace LB_II_1.Forms
             SYMPTOME_COST SymC = new SYMPTOME_COST();
             SymC.New();
             SymC.ID = flag;
-            SymC.Rheum = Convert.ToInt16(dataGridView.Rows[1].Cells[0].Value);
-            SymC.Cough = Convert.ToInt16(dataGridView.Rows[2].Cells[0].Value);
-            SymC.ASoreThroatPain = Convert.ToInt16(dataGridView.Rows[3].Cells[0].Value);
-            SymC.FeverTemperature = Convert.ToInt16(dataGridView.Rows[4].Cells[0].Value);
-            SymC.JointPain = Convert.ToInt16(dataGridView.Rows[5].Cells[0].Value);
-            SymC.SoreThroat = Convert.ToInt16(dataGridView.Rows[6].Cells[0].Value);
-            SymC.Sputum = Convert.ToInt16(dataGridView.Rows[7].Cells[0].Value);
-            SymC.RattlingInLungs = Convert.ToInt16(dataGridView.Rows[8].Cells[0].Value);
-            SymC.PainInLungs = Convert.ToInt16(dataGridView.Rows[9].Cells[0].Value);
-            SymC.NotSay = Convert.ToInt16(dataGridView.Rows[10].Cells[0].Value);
+            SymC.Rheum = Correct(Convert.ToString(dataGridView.Rows[1].Cells[0].Value));
+            SymC.Cough = Correct(Convert.ToString(dataGridView.Rows[2].Cells[0].Value));
+            SymC.ASoreThroatPain = Correct(Convert.ToString(dataGridView.Rows[3].Cells[0].Value));
+            SymC.FeverTemperature = Correct(Convert.ToString(dataGridView.Rows[4].Cells[0].Value));
+            SymC.JointPain = Correct(Convert.ToString(dataGridView.Rows[5].Cells[0].Value));
+            SymC.SoreThroat = Correct(Convert.ToString(dataGridView.Rows[6].Cells[0].Value));
+            SymC.Sputum = Correct(Convert.ToString(dataGridView.Rows[7].Cells[0].Value));
+            SymC.RattlingInLungs = Correct(Convert.ToString(dataGridView.Rows[8].Cells[0].Value));
+            SymC.PainInLungs = Correct(Convert.ToString(dataGridView.Rows[9].Cells[0].Value));
+            SymC.NotSay = Correct(Convert.ToString(dataGridView.Rows[10].Cells[0].Value));
             if(SupperRootCheckBox.Checked)
             {
                 UpdateTable(Connection, SymC: SymC);
@@ -70,73 +77,24 @@ namespace LB_II_1.Forms
             }
         }
         
+        private static short Correct(string String)
+        {
+            for(int i = 0; i < String.Length; ++i)
+            {
+                if(!Char.IsDigit(String,i))
+                {
+                    return 0;
+                }
+            }
+            return Convert.ToInt16(String);
+        }
+
+        
 
         private void DeseareComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetButton.Enabled = true;
             SetButton.Enabled = true;
-            flag = 0;
-            switch (DeseareComboBox.SelectedIndex)
-            {
-                case 0:
-                    flag = 1;
-                    if (Locale)
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_ENG.Pne;
-                    }
-                    else
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_RU.Pne;
-                    }
-                    break;
-                case 1:
-                    flag = 2;
-                    if (Locale)
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_ENG.Ang;
-                    }
-                    else
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_RU.Ang;
-                    }
-                    break;
-                case 2:
-                    flag = 3;
-                    if (Locale)
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_ENG.Flu;
-                    }
-                    else
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_RU.Flu;
-                    }
-                    break;
-                case 3:
-                    flag = 4;
-                    if (Locale)
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_ENG.Pha;
-                    }
-                    else
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_RU.Pha;
-                    }
-                    break;
-                case 4:
-                    flag = 5;
-                    if (Locale)
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_ENG.Bro;
-                    }
-                    else
-                    {
-                        dataGridView.Columns[0].HeaderText = Local.Local_RU.Bro;
-                    }
-                    break;
-                default:
-                    break;
-                
-            }
         }
     }
 }
