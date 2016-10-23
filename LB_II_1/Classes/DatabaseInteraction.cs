@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Timers;
 using static LB_II_1.Classes.SimptomeWrite;
 
 namespace LB_II_1.Classes
@@ -27,6 +28,11 @@ namespace LB_II_1.Classes
                 {
                     ExeptionCreateDatabase(Connection);
                     Connection = new SqlConnection(GetConnectionString());
+                }
+                else
+                {
+                    Connection.Close();
+                    return null;
                 }
             }
             Connection.Close();
@@ -163,7 +169,7 @@ namespace LB_II_1.Classes
             }
         }
 
-        public static void GetSoloOrAllTables(SqlConnection Connection, int flag = 0, SYMPTOME_COST SymC = default(SYMPTOME_COST), SYMPTOME_COST[] SymCM = default(SYMPTOME_COST[]))
+        public static SYMPTOME_COST GetSoloOrAllTables(SqlConnection Connection, int flag = 0, SYMPTOME_COST SymC = default(SYMPTOME_COST), SYMPTOME_COST[] SymCM = default(SYMPTOME_COST[]))
         {
             string sqlExpression = "SELECT * FROM TableCost", Ex= "\n\nGetSoloOrAllTables(flag== "+flag+" ):\n";
             if (flag > 0 && flag < 6)
@@ -184,6 +190,7 @@ namespace LB_II_1.Classes
                         Ex += "\t\tcase 1\n";
                         if (reader.Read())
                         {
+                            SymC.ID = reader.GetInt16(0);//[Id]
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
                             SymC.RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
@@ -199,6 +206,7 @@ namespace LB_II_1.Classes
                         Ex += "\t\tcase 2\n";
                         if (reader.Read())
                         {
+                            SymC.ID = reader.GetInt16(0);//[Id]
                             SymC.ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
                             SymC.JointPain = reader.GetInt16(5);//[JointPainCount]
@@ -214,6 +222,7 @@ namespace LB_II_1.Classes
                         Ex += "\t\tcase 3\n";
                         if (reader.Read())
                         {
+                            SymC.ID = reader.GetInt16(0);//[Id]
                             SymC.Rheum = reader.GetInt16(1);//[RheumCount]  
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
@@ -230,6 +239,7 @@ namespace LB_II_1.Classes
                         Ex += "\t\tcase 4\n";
                         if (reader.Read())
                         {
+                            SymC.ID = reader.GetInt16(0);//[Id]
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.ASoreThroatPain = reader.GetInt16(3);//[ASoreThroatCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
@@ -246,6 +256,7 @@ namespace LB_II_1.Classes
                         Ex += "\t\tcase 5\n";
                         if (reader.Read())
                         {
+                            SymC.ID = reader.GetInt16(0);//[Id]
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.Sputum = reader.GetInt16(7);//[SputumCount]
                             SymC.RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
@@ -260,7 +271,7 @@ namespace LB_II_1.Classes
                     case 6:
                         int i = 0;
                         Ex += "\t\tcase 6\n";
-                        if (reader.Read())
+                        if (reader.HasRows)
                         {
                             Ex += "\t\t\treader.Read()\n";
                             while (reader.Read())
@@ -279,6 +290,8 @@ namespace LB_II_1.Classes
                                 ++i;
                                 Ex += "\t\t\t\twhile(reader.Read(), i== "+i+" )\n";
                             }
+                            Connection.Close();
+                            return SymCM[0];
                         }
                         else
                         {
@@ -316,10 +329,10 @@ namespace LB_II_1.Classes
                 MessageBox.Show("GetSoloOrAllTables - " + "SELECT exeption: " + se.Number.ToString() + "\n" + se.Message + Ex);
                 Connection.Close();
             }
-            
+            return SymC;
         }
 
-        public static void UpdateTable(SqlConnection Connection, SYMPTOME_COST SymC = default(SYMPTOME_COST), int flag = 0, SYMPTOME_COST[] SymCM = default(SYMPTOME_COST[]))
+        public static void UpdateTable(SqlConnection Connection, int flag = 0, SYMPTOME_COST SymC = default(SYMPTOME_COST), SYMPTOME_COST[] SymCM = default(SYMPTOME_COST[]))
         {
             string sqlExpression = null, Ex = "\n\nUpdateTable(flag == "+flag+" ):\n";
             SqlCommand command2 = null;
@@ -453,7 +466,8 @@ namespace LB_II_1.Classes
         public static int NeedNewTables(SqlConnection Connection)
     {
         int control_index = 0;
-        bool first = true, second = true, third = true, fourth = true, fifth = true;
+        short check;
+        bool first = false, second = false, third = false, fourth = false, fifth = false;
         string sqlExpression = "SELECT * FROM TableCost";
         SqlCommand command = new SqlCommand(sqlExpression, Connection);
         try
@@ -461,35 +475,38 @@ namespace LB_II_1.Classes
             Connection.Open();
             SqlDataReader reader = command.ExecuteReader();
             {
-                while (reader.Read())
-                {
-                    ++control_index;
-                    if (control_index == 1)
+                    if (reader.HasRows) // если есть данные
                     {
-                        first = (reader.GetInt16(0) == 1) ? (true) : (false);
-                    }
-                    if (control_index == 2)
-                    {
-                        second = (reader.GetInt16(0) == 2) ? (true) : (false);
-                    }
-                    if (control_index == 3)
-                    {
-                        third = (reader.GetInt16(0) == 3) ? (true) : (false);
-                    }
-                    if (control_index == 4)
-                    {
-                        fourth = (reader.GetInt16(0) == 4) ? (true) : (false);
-                    }
-                    if (control_index == 5)
-                    {
-                        fifth = (reader.GetInt16(0) == 5) ? (true) : (false);
-                    }
-
+                        while (reader.Read())
+                        {
+                            ++control_index;
+                            check = reader.GetInt16(0);
+                            if (check == 1)
+                            {
+                                first = true;
+                            }
+                            if (check == 2)
+                            {
+                                second = true;
+                            }
+                            if (check == 3)
+                            {
+                                third = true;
+                            }
+                            if (check == 4)
+                            {
+                                fourth = true;
+                            }
+                            if (check == 5)
+                            {
+                                fifth = true;
+                            }
+                        }
                 }
                 Connection.Close();
                 if (!first || !second || !third || !fourth || !fifth || control_index != 5)
                 {
-                    DropTable(Connection);
+                        TrancateTable(Connection);
                     CreateTable(Connection);
                     NewTables(Connection);
                 }
@@ -499,14 +516,16 @@ namespace LB_II_1.Classes
         catch (SqlException se)
         {
             MessageBox.Show("NeedNewTables - " + "SELECT exeption: " + se.Number.ToString() + "\n" + se.Message);
-            Connection.Close();
+                
+                Connection.Close();
+                CreateTable(Connection);
         }
         return 0;
     }
 
-        public static void DropTable(SqlConnection Connection)
+        public static void TrancateTable(SqlConnection Connection)
         {
-            string sqlExpression = "DROP TABLE TableCost";
+            string sqlExpression = "TRUNCATE TABLE TableCost";
             SqlCommand command = new SqlCommand(sqlExpression, Connection);
             SqlCommand cmdDropTable = new SqlCommand(sqlExpression, Connection);
             try
@@ -517,11 +536,11 @@ namespace LB_II_1.Classes
             }
             catch (SqlException se)
             {
-                MessageBox.Show("DropTable - " + "DROP exeption: " + se.Number.ToString() + "\n" + se.Message);
+                MessageBox.Show("TrancateTable - " + "TRUNCATE exeption: " + se.Number.ToString() + "\n" + se.Message);
                 Connection.Close();
             }
         }
 
-
+        
     }
 }

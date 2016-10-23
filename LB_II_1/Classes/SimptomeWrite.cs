@@ -98,18 +98,25 @@ namespace LB_II_1.Classes
                 NotSay = 0;
                 PainInLungs = 0;
             }
+
+            public void New()
+            {
+                ID = 0;
+                Rheum = 0;
+                Cough = 0;
+                ASoreThroatPain = 0;
+                FeverTemperature = 0;
+                JointPain = 0;
+                SoreThroat = 0;
+                Sputum = 0;
+                RattlingInLungs = 0;
+                NotSay = 0;
+                PainInLungs = 0;
+            }
+
         };
 
-        public struct DISEASE
-        {
-            short DiseaseIndex;//индекс (имени) болезни
-                                //1-Воспаление легких
-                                //2-ангина
-                                //3-Грипп
-                                //4-Фарингит
-                                //5-Бронхит
-            SYMPTOME_COST SymCost;
-        };
+        
 
         public static int CheckDisease(SYMPTOME Sym)
         {

@@ -56,7 +56,9 @@
             this.Diagnostic = new System.Windows.Forms.Button();
             this.Local_button = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.ReconnectTimer = new System.Timers.Timer();
             this.groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReconnectTimer)).BeginInit();
             this.SuspendLayout();
             // 
             // SymptomeEdit
@@ -106,6 +108,13 @@
             this.groupBox.TabIndex = 4;
             this.groupBox.TabStop = false;
             // 
+            // ReconnectTimer
+            // 
+            this.ReconnectTimer.AutoReset = false;
+            this.ReconnectTimer.Interval = 5000D;
+            this.ReconnectTimer.SynchronizingObject = this;
+            this.ReconnectTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.ReconnectTimer_Elapsed);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,6 +126,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StatForm_FormClosed);
             this.Load += new System.EventHandler(this.StatForm_Load);
             this.groupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ReconnectTimer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -128,6 +138,7 @@
         private System.Windows.Forms.Button Diagnostic;
         private System.Windows.Forms.Button Local_button;
         private System.Windows.Forms.GroupBox groupBox;
+        public System.Timers.Timer ReconnectTimer;
     }
 }
 

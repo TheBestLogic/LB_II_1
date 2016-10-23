@@ -86,11 +86,6 @@ namespace LB_II_1.Forms
             EnabledFunction();
         }
 
-        private void CheckDisease(SYMPTOME sYMPTOME, SYMPTOME sym, SYMPTOME_COST sYMPTOME_COST, object symC)
-        {
-            throw new NotImplementedException();
-        }
-
         private void EnabledFunction()
         {
             this.Rheum_checkBox.Enabled = !this.Rheum_checkBox.Enabled;

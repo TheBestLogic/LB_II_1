@@ -30,9 +30,15 @@ namespace LB_II_1
 
         private void StatForm_Load(object sender, EventArgs e)
         {
-            SYMPTOME_COST[] SymC = new SYMPTOME_COST[5];
             Connection = CreateConn(Connection);
-            NeedNewTables(Connection);
+            if(Connection == null)
+            {
+                ReconnectTimer.Enabled = true;
+            }
+            else
+            {
+                NeedNewTables(Connection);
+            }
         }
 
         private void StatForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -68,6 +74,12 @@ namespace LB_II_1
         {
             Locale = !Locale;
             SetTextLocale(Locale);
+        }
+
+        private void ReconnectTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            ReconnectTimer.Enabled = false;
+            Connection = CreateConn(Connection);
         }
     }
 }

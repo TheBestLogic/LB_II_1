@@ -64,6 +64,11 @@
     <Compile Include="Classes\DatabaseInteraction.cs" />
     <Compile Include="Classes\ResourcesConfigEditClass.cs" />
     <Compile Include="Classes\SimptomeWrite.cs" />
+    <Compile Include="DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Diagnostic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +138,17 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="DatabaseDataSet.xsc">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet.xss">
+      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,7 +159,15 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Database\Database.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\Database_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
@@ -155,15 +179,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Database\Database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <Content Include="Database\Database_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

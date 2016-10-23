@@ -61,6 +61,42 @@ namespace LB_II_1.Local {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Angina.
+        /// </summary>
+        internal static string Ang {
+            get {
+                return ResourceManager.GetString("Ang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pain In Throat.
+        /// </summary>
+        internal static string ASoreThroatPain {
+            get {
+                return ResourceManager.GetString("ASoreThroatPain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Bronchitis.
+        /// </summary>
+        internal static string Bro {
+            get {
+                return ResourceManager.GetString("Bro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cough.
+        /// </summary>
+        internal static string Cough {
+            get {
+                return ResourceManager.GetString("Cough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Diagnostic.
         /// </summary>
         internal static string Diagnostic_button_name {
@@ -70,11 +106,83 @@ namespace LB_II_1.Local {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Fever Temperature.
+        /// </summary>
+        internal static string FeverTemperature {
+            get {
+                return ResourceManager.GetString("FeverTemperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Flu.
+        /// </summary>
+        internal static string Flu {
+            get {
+                return ResourceManager.GetString("Flu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на GET.
+        /// </summary>
+        internal static string GET_B {
+            get {
+                return ResourceManager.GetString("GET_B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Joint Pain.
+        /// </summary>
+        internal static string JointPain {
+            get {
+                return ResourceManager.GetString("JointPain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на RU.
         /// </summary>
         internal static string Local_button_name {
             get {
                 return ResourceManager.GetString("Local_button_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Voice loss.
+        /// </summary>
+        internal static string NotSay {
+            get {
+                return ResourceManager.GetString("NotSay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pain In Lungs.
+        /// </summary>
+        internal static string PainInLungs {
+            get {
+                return ResourceManager.GetString("PainInLungs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pharyngitis.
+        /// </summary>
+        internal static string Pha {
+            get {
+                return ResourceManager.GetString("Pha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pneumonia.
+        /// </summary>
+        internal static string Pne {
+            get {
+                return ResourceManager.GetString("Pne", resourceCulture);
             }
         }
         
@@ -97,11 +205,56 @@ namespace LB_II_1.Local {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Rattling In Lungs.
+        /// </summary>
+        internal static string RattlingInLungs {
+            get {
+                return ResourceManager.GetString("RattlingInLungs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Rheum.
+        /// </summary>
+        internal static string Rheum {
+            get {
+                return ResourceManager.GetString("Rheum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Database.
         /// </summary>
         internal static string SeenDB_button_name {
             get {
                 return ResourceManager.GetString("SeenDB_button_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SET.
+        /// </summary>
+        internal static string SET_B {
+            get {
+                return ResourceManager.GetString("SET_B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Sore Throat.
+        /// </summary>
+        internal static string SoreThroat {
+            get {
+                return ResourceManager.GetString("SoreThroat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Sputum.
+        /// </summary>
+        internal static string Sputum {
+            get {
+                return ResourceManager.GetString("Sputum", resourceCulture);
             }
         }
         

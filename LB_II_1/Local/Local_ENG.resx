@@ -117,22 +117,96 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Ang" xml:space="preserve">
+    <value>Angina</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="ASoreThroatPain" xml:space="preserve">
+    <value>Pain In Throat</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="Bro" xml:space="preserve">
+    <value>Bronchitis</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="Cough" xml:space="preserve">
+    <value>Cough</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
   <data name="Diagnostic_button_name" xml:space="preserve">
     <value>Diagnostic</value>
+    <comment>Use in: StartForm</comment>
+  </data>
+  <data name="FeverTemperature" xml:space="preserve">
+    <value>Fever Temperature</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="Flu" xml:space="preserve">
+    <value>Flu</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="JointPain" xml:space="preserve">
+    <value>Joint Pain</value>
+    <comment>Use in: SeenDatabaseForm</comment>
   </data>
   <data name="Local_button_name" xml:space="preserve">
     <value>RU</value>
+    <comment>Use in: StartForm</comment>
+  </data>
+  <data name="NotSay" xml:space="preserve">
+    <value>Voice loss</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="PainInLungs" xml:space="preserve">
+    <value>Pain In Lungs</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="Pha" xml:space="preserve">
+    <value>Pharyngitis</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="Pne" xml:space="preserve">
+    <value>Pneumonia</value>
+    <comment>Use in: SeenDatabaseForm</comment>
   </data>
   <data name="ProgName" xml:space="preserve">
     <value>DAI</value>
+    <comment>Use in: StartForm</comment>
   </data>
   <data name="ProgNameFull" xml:space="preserve">
     <value>Diagnostic Artificial Intelligence</value>
+    <comment>Use in: StartForm</comment>
+  </data>
+  <data name="RattlingInLungs" xml:space="preserve">
+    <value>Rattling In Lungs</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="Rheum" xml:space="preserve">
+    <value>Rheum</value>
+    <comment>Use in: SeenDatabaseForm</comment>
   </data>
   <data name="SeenDB_button_name" xml:space="preserve">
     <value>Database</value>
+    <comment>Use in: StartForm, SeenDatabaseForm</comment>
+  </data>
+  <data name="SoreThroat" xml:space="preserve">
+    <value>Sore Throat</value>
+    <comment>Use in: SeenDatabaseForm</comment>
+  </data>
+  <data name="Sputum" xml:space="preserve">
+    <value>Sputum</value>
+    <comment>Use in: SeenDatabaseForm</comment>
   </data>
   <data name="SymCostSet_button_name" xml:space="preserve">
     <value>Set symptome cost</value>
+    <comment>Use in: StartForm</comment>
+  </data>
+  <data name="GET_B" xml:space="preserve">
+    <value>GET</value>
+    <comment>Use in:SymptomCosrSetForm</comment>
+  </data>
+  <data name="SET_B" xml:space="preserve">
+    <value>SET</value>
+    <comment>Use in:SymptomCosrSetForm</comment>
   </data>
 </root>
