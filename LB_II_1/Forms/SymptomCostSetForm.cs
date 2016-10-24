@@ -50,6 +50,7 @@ namespace LB_II_1.Forms
             dataGridView.Rows[8].Cells[0].Value = Convert.ToString(SymC.RattlingInLungs);
             dataGridView.Rows[9].Cells[0].Value = Convert.ToString(SymC.PainInLungs);
             dataGridView.Rows[10].Cells[0].Value = Convert.ToString(SymC.NotSay);
+            MessageBox.Show("GET");
         }
 
         private void SetButton_Click(object sender, EventArgs e)
@@ -75,6 +76,7 @@ namespace LB_II_1.Forms
             {
                 UpdateTable(Connection, flag, SymC);
             }
+            MessageBox.Show("ADD");
         }
         
         private static short Correct(string String)
@@ -96,6 +98,46 @@ namespace LB_II_1.Forms
             flag = Convert.ToInt16(DeseareComboBox.SelectedIndex + 1);
             GetButton.Enabled = true;
             SetButton.Enabled = true;
+        }
+
+        private void AUTOSET_button_Click(object sender, EventArgs e)
+        {
+            SYMPTOME_COST[] SymC = new SYMPTOME_COST[5];
+            SymC[0].New();
+            SymC[0].ID = 1;
+            SymC[0].Cough = 1;
+            SymC[0].Sputum = 1;
+            SymC[0].FeverTemperature = 1;
+            SymC[0].PainInLungs = 1;
+            SymC[0].RattlingInLungs = 1;
+            SymC[1].New();
+            SymC[1].ID = 2;
+            SymC[1].JointPain = 1;
+            SymC[1].FeverTemperature = 1;
+            SymC[1].SoreThroat = 1;
+            SymC[1].ASoreThroatPain = 1;
+            SymC[2].New();
+            SymC[2].ID = 3;
+            SymC[2].Cough = 1;
+            SymC[2].FeverTemperature = 1;
+            SymC[2].SoreThroat = 1;
+            SymC[2].ASoreThroatPain = 1;
+            SymC[2].Rheum = 1;
+            SymC[3].New();
+            SymC[3].ID = 4;
+            SymC[3].Cough = 1;
+            SymC[3].FeverTemperature = 1;
+            SymC[3].SoreThroat = 1;
+            SymC[3].ASoreThroatPain = 1;
+            SymC[3].NotSay = 1;
+            SymC[4].New();
+            SymC[4].ID = 5;
+            SymC[4].Cough = 1;
+            SymC[4].Sputum = 1;
+            SymC[4].PainInLungs = 1;
+            SymC[4].RattlingInLungs = 1;
+            UpdateTable(Connection, 6, SymCM:SymC);
+            MessageBox.Show("ADD");
         }
     }
 }

@@ -209,4 +209,7 @@
     <value>Сохранить</value>
     <comment>Use in:SymptomCosrSetForm</comment>
   </data>
+  <data name="Massage" xml:space="preserve">
+    <value>Вероятно, это </value>
+  </data>
 </root>

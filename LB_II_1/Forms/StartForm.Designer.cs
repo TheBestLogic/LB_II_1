@@ -51,14 +51,15 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SymptomeEdit = new System.Windows.Forms.Button();
             this.SeenDatabase = new System.Windows.Forms.Button();
             this.Diagnostic = new System.Windows.Forms.Button();
             this.Local_button = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.ReconnectTimer = new System.Timers.Timer();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ReconnectTimer)).BeginInit();
             this.SuspendLayout();
             // 
             // SymptomeEdit
@@ -108,26 +109,34 @@
             this.groupBox.TabIndex = 4;
             this.groupBox.TabStop = false;
             // 
-            // ReconnectTimer
+            // timer
             // 
-            this.ReconnectTimer.AutoReset = false;
-            this.ReconnectTimer.Interval = 5000D;
-            this.ReconnectTimer.SynchronizingObject = this;
-            this.ReconnectTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.ReconnectTimer_Elapsed);
+            this.timer.Interval = 10000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(9, 136);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(29, 13);
+            this.label.TabIndex = 5;
+            this.label.Text = "";
             // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(191, 166);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.Local_button);
             this.Name = "StartForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StatForm_FormClosed);
             this.Load += new System.EventHandler(this.StatForm_Load);
             this.groupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ReconnectTimer)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,7 +147,8 @@
         private System.Windows.Forms.Button Diagnostic;
         private System.Windows.Forms.Button Local_button;
         private System.Windows.Forms.GroupBox groupBox;
-        public System.Timers.Timer ReconnectTimer;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label label;
     }
 }
 

@@ -72,7 +72,7 @@ namespace LB_II_1.Classes
         private static string GetConnectionString()
         {
             return "Data Source=(LocalDB)\\MSSQLLocalDB;"
-                    + "AttachDbFilename="+ Properties.Settings.Default.DBDir + ";"
+                    + "AttachDbFilename=" + Properties.Settings.Default.DBDir + ";"
                     + " Integrated Security=True";
         }
 
@@ -192,6 +192,7 @@ namespace LB_II_1.Classes
                             SymC.Cough = reader.GetInt16(2);//[CoughCount]
                             SymC.FeverTemperature = reader.GetInt16(4);//[FeverTemperatureCount]
                             SymC.RattlingInLungs = reader.GetInt16(8);//[RattlingInLungsCount]
+                            SymC.Sputum = reader.GetInt16(7);//[SputumCount]
                             SymC.PainInLungs = reader.GetInt16(9);//[PainInLungsCount]
                             Ex += "\t\t\treader.Read()\n";
                         }
@@ -342,6 +343,7 @@ namespace LB_II_1.Classes
                 case 1://Pneumonia
                     sqlExpression = "UPDATE TableCost SET " +
                     " CoughCount=" + SymC.Cough +
+                    ", SputumCount=" + SymC.Sputum +
                     ", FeverTemperatureCount=" + SymC.FeverTemperature +
                     ", RattlingInLungsCount=" + SymC.RattlingInLungs +
                     ", PainInLungsCount=" + SymC.PainInLungs +
@@ -383,37 +385,38 @@ namespace LB_II_1.Classes
                     break;
                 case 6:
                     sqlExpression = "UPDATE TableCost SET " +
-                    " CoughCount=" + SymC.Cough +
-                    ", FeverTemperatureCount=" + SymC.FeverTemperature +
-                    ", RattlingInLungsCount=" + SymC.RattlingInLungs +
-                    ", PainInLungsCount=" + SymC.PainInLungs +
-                    " WHERE Id =" + SymC.ID + ';';
+                    " CoughCount=" + SymCM[0].Cough +
+                    ", SputumCount=" + SymCM[0].Sputum +
+                    ", FeverTemperatureCount=" + SymCM[0].FeverTemperature +
+                    ", RattlingInLungsCount=" + SymCM[0].RattlingInLungs +
+                    ", PainInLungsCount=" + SymCM[0].PainInLungs +
+                    " WHERE Id =" + SymCM[0].ID + ';';
                     string sqlExpression2 = "UPDATE TableCost SET " +
-                    " ASoreThroatCount=" + SymC.ASoreThroatPain +
-                    ", FeverTemperatureCount=" + SymC.FeverTemperature +
-                    ", JointPainCount=" + SymC.JointPain +
-                    ", SoreThroatCount=" + SymC.SoreThroat +
-                    " WHERE Id =" + SymC.ID + ';';
+                    " ASoreThroatCount=" + SymCM[1].ASoreThroatPain +
+                    ", FeverTemperatureCount=" + SymCM[1].FeverTemperature +
+                    ", JointPainCount=" + SymCM[1].JointPain +
+                    ", SoreThroatCount=" + SymCM[1].SoreThroat +
+                    " WHERE Id =" + SymCM[1].ID + ';';
                     string sqlExpression3 = "UPDATE TableCost SET " +
-                    "RheumCount=" + SymC.Rheum +
-                    ", CoughCount=" + SymC.Cough +
-                    ", ASoreThroatCount=" + SymC.ASoreThroatPain +
-                    ", FeverTemperatureCount=" + SymC.FeverTemperature +
-                    ", SoreThroatCount=" + SymC.SoreThroat +
-                    " WHERE Id =" + SymC.ID + ';';
+                    "RheumCount=" + SymCM[2].Rheum +
+                    ", CoughCount=" + SymCM[2].Cough +
+                    ", ASoreThroatCount=" + SymCM[2].ASoreThroatPain +
+                    ", FeverTemperatureCount=" + SymCM[2].FeverTemperature +
+                    ", SoreThroatCount=" + SymCM[2].SoreThroat +
+                    " WHERE Id =" + SymCM[2].ID + ';';
                     string sqlExpression4 = "UPDATE TableCost SET " +
-                    " CoughCount=" + SymC.Cough +
-                    ", ASoreThroatCount=" + SymC.ASoreThroatPain +
-                    ", FeverTemperatureCount=" + SymC.FeverTemperature +
-                    ", SoreThroatCount=" + SymC.SoreThroat +
-                    ", NotSayCount=" + SymC.NotSay +
-                    " WHERE Id =" + SymC.ID + ';';
+                    " CoughCount=" + SymCM[3].Cough +
+                    ", ASoreThroatCount=" + SymCM[3].ASoreThroatPain +
+                    ", FeverTemperatureCount=" + SymCM[3].FeverTemperature +
+                    ", SoreThroatCount=" + SymCM[3].SoreThroat +
+                    ", NotSayCount=" + SymCM[3].NotSay +
+                    " WHERE Id =" + SymCM[3].ID + ';';
                     string sqlExpression5 = "UPDATE TableCost SET " +
-                    " CoughCount=" + SymC.Cough +
-                    ", SputumCount=" + SymC.Sputum +
-                    ", RattlingInLungsCount=" + SymC.RattlingInLungs +
-                    ", PainInLungsCount=" + SymC.PainInLungs +
-                    " WHERE Id =" + SymC.ID + ';';
+                    " CoughCount=" + SymCM[4].Cough +
+                    ", SputumCount=" + SymCM[4].Sputum +
+                    ", RattlingInLungsCount=" + SymCM[4].RattlingInLungs +
+                    ", PainInLungsCount=" + SymCM[4].PainInLungs +
+                    " WHERE Id =" + SymCM[4].ID + ';';
                     command2 = new SqlCommand(sqlExpression2, Connection);
                     command3 = new SqlCommand(sqlExpression3, Connection);
                     command4 = new SqlCommand(sqlExpression4, Connection);

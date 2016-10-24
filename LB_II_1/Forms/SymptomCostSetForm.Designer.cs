@@ -87,6 +87,7 @@
             this.GetButton = new System.Windows.Forms.Button();
             this.SetButton = new System.Windows.Forms.Button();
             this.SupperRootCheckBox = new System.Windows.Forms.CheckBox();
+            this.AUTOSET_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,11 +142,22 @@
             this.SupperRootCheckBox.TabIndex = 4;
             this.SupperRootCheckBox.UseVisualStyleBackColor = true;
             // 
+            // AUTOSET_button
+            // 
+            this.AUTOSET_button.Location = new System.Drawing.Point(265, 191);
+            this.AUTOSET_button.Name = "AUTOSET_button";
+            this.AUTOSET_button.Size = new System.Drawing.Size(75, 23);
+            this.AUTOSET_button.TabIndex = 5;
+            this.AUTOSET_button.Text = "AUTOSET";
+            this.AUTOSET_button.UseVisualStyleBackColor = true;
+            this.AUTOSET_button.Click += new System.EventHandler(this.AUTOSET_button_Click);
+            // 
             // SymptomCostSetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 284);
+            this.Controls.Add(this.AUTOSET_button);
             this.Controls.Add(this.SupperRootCheckBox);
             this.Controls.Add(this.SetButton);
             this.Controls.Add(this.GetButton);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Button GetButton;
         private System.Windows.Forms.Button SetButton;
         private System.Windows.Forms.CheckBox SupperRootCheckBox;
+        private System.Windows.Forms.Button AUTOSET_button;
     }
 }

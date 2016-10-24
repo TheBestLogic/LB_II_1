@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LB_II_1.Classes.DatabaseInteraction;
@@ -30,10 +31,12 @@ namespace LB_II_1
 
         private void StatForm_Load(object sender, EventArgs e)
         {
+            label.Text = "";
             Connection = CreateConn(Connection);
             if(Connection == null)
             {
-                ReconnectTimer.Enabled = true;
+                timer.Start();
+                label.Text = "Reconnecting.";
             }
             else
             {
@@ -76,19 +79,13 @@ namespace LB_II_1
             SetTextLocale(Locale);
         }
 
-        private void ReconnectTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
-            ReconnectTimer.Enabled = false;
-            Connection = CreateConn(Connection);
-            if (Connection == null)
-            {
-                ReconnectTimer.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Connection create");
-                NeedNewTables(Connection);
-            }
+            timer.Enabled = false;
+            timer.Stop();
+            label.Text = "";
+            StatForm_Load(sender, e);
         }
+        
     }
 }

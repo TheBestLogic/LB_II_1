@@ -11,18 +11,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LB_II_1.Classes;
 using static LB_II_1.Classes.SimptomeWrite;
+using static LB_II_1.Classes.DatabaseInteraction;
 
 namespace LB_II_1.Forms
 {
     public partial class Diagnostic : Form
     {
         private SYMPTOME Sym;
+        public SqlConnection Connection;
+        bool Locale;
 
-        public Diagnostic(SqlConnection Connection, bool GetLocale, Point Location)
+        public Diagnostic(SqlConnection _Connection, bool GetLocale, Point Location)
         {
+            Connection = _Connection;
             InitializeComponent();
             SetTextLocale(GetLocale);
             this.Location = Location;
+            Locale = GetLocale;
             Sym.Clear();
         }
 
@@ -79,9 +84,61 @@ namespace LB_II_1.Forms
         private void Diagnostic_button_Click(object sender, EventArgs e)
         {
             EnabledFunction();
+            textBox.Text = "";
             SYMPTOME_COST[] SymC = new SYMPTOME_COST[5];
-            SimptomeWrite.GetSum(ref Sym, ref SymC);
-            Thread.Sleep(5000);
+            GetSoloOrAllTables(Connection, 6, SymCM: SymC);
+            Thread.Sleep(300);
+            int Fl = GetSum(ref Sym, ref SymC);
+            if (Locale)
+            {
+                textBox.Text += Local.Local_ENG.Massage+' ';
+                switch (Fl)
+                {
+                    case 1:
+                        textBox.Text += Local.Local_ENG.Pne;
+                        break;
+                    case 2:
+                        textBox.Text += Local.Local_ENG.Ang;
+                        break;
+                    case 3:
+                        textBox.Text += Local.Local_ENG.Flu;
+                        break;
+                    case 4:
+                        textBox.Text += Local.Local_ENG.Pha;
+                        break;
+                    case 5:
+                        textBox.Text += Local.Local_ENG.Bro;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                textBox.Text += Local.Local_RU.Massage;
+                switch (Fl)
+                {
+                    case 1:
+                        textBox.Text += Local.Local_RU.Pne;
+                        break;
+                    case 2:
+                        textBox.Text += Local.Local_RU.Ang;
+                        break;
+                    case 3:
+                        textBox.Text += Local.Local_RU.Flu;
+                        break;
+                    case 4:
+                        textBox.Text += Local.Local_RU.Pha;
+                        break;
+                    case 5:
+                        textBox.Text += Local.Local_RU.Bro;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            UpdateTable(Connection, Fl, SymC[Fl]);
+            Thread.Sleep(300);
             EnabledFunction();
         }
 

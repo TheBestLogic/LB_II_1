@@ -209,4 +209,7 @@
     <value>SET</value>
     <comment>Use in:SymptomCosrSetForm</comment>
   </data>
+  <data name="Massage" xml:space="preserve">
+    <value>Рossibly it </value>
+  </data>
 </root>

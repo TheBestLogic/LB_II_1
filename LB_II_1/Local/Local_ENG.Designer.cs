@@ -151,6 +151,15 @@ namespace LB_II_1.Local {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Рossibly it .
+        /// </summary>
+        internal static string Massage {
+            get {
+                return ResourceManager.GetString("Massage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Voice loss.
         /// </summary>
         internal static string NotSay {
