@@ -158,7 +158,6 @@ namespace LB_II_1.Classes
             return Summ;
         }
 
-
         private static int Flu(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
@@ -200,7 +199,75 @@ namespace LB_II_1.Classes
             return Summ;
         }
 
+        private static void ChangeCost(int DeseareIndex, SYMPTOME Sym, ref SYMPTOME_COST SymC)
+        {
+            switch (DeseareIndex)
+            {
+                case 1:
+                    AnaliseCount(Sym.Cough, ref SymC.Cough);
+                    AnaliseCount(Sym.FeverTemperature, ref SymC.FeverTemperature);
+                    AnaliseCount(Sym.PainInLungs, ref SymC.PainInLungs);
+                    AnaliseCount(Sym.RattlingInLungs, ref SymC.RattlingInLungs);
+                    break;
+                case 2:
+                    AnaliseCount(Sym.JointPain, ref SymC.JointPain);
+                    AnaliseCount(Sym.FeverTemperature, ref SymC.FeverTemperature);
+                    AnaliseCount(Sym.SoreThroat, ref SymC.SoreThroat);
+                    AnaliseCount(Sym.ASoreThroatPain, ref SymC.ASoreThroatPain);
+                    break;
+                case 3:
+                    AnaliseCount(Sym.Cough, ref SymC.Cough);
+                    AnaliseCount(Sym.FeverTemperature, ref SymC.FeverTemperature);
+                    AnaliseCount(Sym.SoreThroat, ref SymC.SoreThroat);
+                    AnaliseCount(Sym.ASoreThroatPain, ref SymC.ASoreThroatPain);
+                    AnaliseCount(Sym.Rheum, ref SymC.Rheum);
+                    break;
+                case 4:
+                    AnaliseCount(Sym.Cough, ref SymC.Cough);
+                    AnaliseCount(Sym.FeverTemperature, ref SymC.FeverTemperature);
+                    AnaliseCount(Sym.SoreThroat, ref SymC.SoreThroat);
+                    AnaliseCount(Sym.ASoreThroatPain, ref SymC.ASoreThroatPain);
+                    AnaliseCount(Sym.NotSay, ref SymC.NotSay);
+                    break;
+                case 5:
+                    AnaliseCount(Sym.Cough, ref SymC.Cough);
+                    AnaliseCount(Sym.Sputum, ref SymC.Sputum);
+                    AnaliseCount(Sym.PainInLungs, ref SymC.PainInLungs);
+                    AnaliseCount(Sym.RattlingInLungs, ref SymC.RattlingInLungs);
+                    break;
+                default:
+                    break;
+            }
+        }
 
+        private static void AnaliseCount(bool flag, ref short Count)
+        {
+            if (flag)
+            {
+                if ((Count+1)>26)
+                {
+                    ++Count;
+                }
+            }
+            else
+            {
+                if ((Count - 1) > 0)
+                {
+                    --Count;
+                }
+            }
+        }
+        private static void GetSum(ref int[] SummMass, ref SYMPTOME Sym, ref SYMPTOME_COST[] SymC)
+        {
+            int i = 0;
+            SummMass[0] = Pneumonia(Sym, SymC[0]);
+            SummMass[1] = Angina(Sym, SymC[1]);
+            SummMass[2] = Flu(Sym, SymC[2]);
+            SummMass[3] = Pharyngitis(Sym, SymC[3]);
+            SummMass[4] = Bronchitis(Sym, SymC[4]);
+
+            //ChangeCost(
+        }
 
 
     }
