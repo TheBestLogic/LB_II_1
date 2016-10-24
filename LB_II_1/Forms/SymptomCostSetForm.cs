@@ -93,6 +93,7 @@ namespace LB_II_1.Forms
 
         private void DeseareComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            flag = Convert.ToInt16(DeseareComboBox.SelectedIndex + 1);
             GetButton.Enabled = true;
             SetButton.Enabled = true;
         }

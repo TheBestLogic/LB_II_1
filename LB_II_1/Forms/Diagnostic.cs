@@ -79,9 +79,8 @@ namespace LB_II_1.Forms
         private void Diagnostic_button_Click(object sender, EventArgs e)
         {
             EnabledFunction();
-            SimptomeWrite.CheckDisease(Sym);
-
-
+            SYMPTOME_COST[] SymC = new SYMPTOME_COST[5];
+            SimptomeWrite.GetSum(ref Sym, ref SymC);
             Thread.Sleep(5000);
             EnabledFunction();
         }

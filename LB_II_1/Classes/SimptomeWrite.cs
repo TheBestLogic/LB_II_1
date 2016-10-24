@@ -116,23 +116,8 @@ namespace LB_II_1.Classes
 
         };
 
-        
 
-        public static int CheckDisease(SYMPTOME Sym)
-        {
-            ////
-            SYMPTOME_COST SymC = new SYMPTOME_COST();
-            SymC.Clear();
-            ////
-            int MayBeItResult = 0;
-            int[] mass = { Pneumonia(Sym, SymC), Angina(Sym, SymC), Flu(Sym, SymC), Pharyngitis(Sym, SymC) , Bronchitis(Sym, SymC)}; 
-            //
-
-            //
-            return MayBeItResult;
-        }
-        
-       private static int Pneumonia(SYMPTOME Sym, SYMPTOME_COST SymC)
+        private static int Pneumonia(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
             if (Sym.RattlingInLungs)
@@ -257,16 +242,25 @@ namespace LB_II_1.Classes
                 }
             }
         }
-        private static void GetSum(ref int[] SummMass, ref SYMPTOME Sym, ref SYMPTOME_COST[] SymC)
+        public static int GetSum(ref SYMPTOME Sym, ref SYMPTOME_COST[] SymC)
         {
-            int i = 0;
+            int i = 0, Flag =1;
+            int[] SummMass = new int[5];
             SummMass[0] = Pneumonia(Sym, SymC[0]);
             SummMass[1] = Angina(Sym, SymC[1]);
             SummMass[2] = Flu(Sym, SymC[2]);
             SummMass[3] = Pharyngitis(Sym, SymC[3]);
             SummMass[4] = Bronchitis(Sym, SymC[4]);
+            for (i = 0; i < 5; ++i)
+            {
+                if(SummMass[i]> SummMass[Flag-1])
+                {
+                    Flag = i+1;
+                }
+            }
+            ChangeCost(SymC[Flag - 1].ID, Sym, ref SymC[Flag - 1]);
+            return Flag; 
 
-            //ChangeCost(
         }
 
 

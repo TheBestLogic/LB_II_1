@@ -80,6 +80,15 @@ namespace LB_II_1
         {
             ReconnectTimer.Enabled = false;
             Connection = CreateConn(Connection);
+            if (Connection == null)
+            {
+                ReconnectTimer.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Connection create");
+                NeedNewTables(Connection);
+            }
         }
     }
 }
