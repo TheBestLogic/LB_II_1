@@ -32,10 +32,32 @@
             if (ENG_loc)
             {
                 this.Text = Local.Local_ENG.ProgName + ": " + Local.Local_ENG.Diagnostic_button_name;
+                this.Rheum_checkBox.Text = Local.Local_ENG.Rheum;
+                this.FeverTemperature_checkBox.Text = Local.Local_ENG.FeverTemperature;
+                this.JointPain_checkBox.Text = Local.Local_ENG.JointPain;
+                this.ASoreThroatPain_checkBox.Text = Local.Local_ENG.ASoreThroatPain;
+                this.SoreThroat_checkBox.Text = Local.Local_ENG.SoreThroat;
+                this.NotSay_checkBox.Text = Local.Local_ENG.NotSay;
+                this.Cough_checkBox.Text = Local.Local_ENG.Cough;
+                this.RattlingInLungs_checkBox.Text = Local.Local_ENG.RattlingInLungs;
+                this.PainInLungs_checkBox.Text = Local.Local_ENG.PainInLungs;
+                this.Sputum_checkBox.Text = Local.Local_ENG.Sputum;
+                this.Diagnostic_button.Text = Local.Local_ENG.Diagnostic_button_name;
             }
             else
             {
                 this.Text = Local.Local_RU.ProgName + ": " + Local.Local_RU.Diagnostic_button_name;
+                this.Rheum_checkBox.Text = Local.Local_RU.Rheum;
+                this.FeverTemperature_checkBox.Text = Local.Local_RU.FeverTemperature;
+                this.JointPain_checkBox.Text = Local.Local_RU.JointPain;
+                this.ASoreThroatPain_checkBox.Text = Local.Local_RU.ASoreThroatPain;
+                this.SoreThroat_checkBox.Text = Local.Local_RU.SoreThroat;
+                this.NotSay_checkBox.Text = Local.Local_RU.NotSay;
+                this.Cough_checkBox.Text = Local.Local_RU.Cough;
+                this.RattlingInLungs_checkBox.Text = Local.Local_RU.RattlingInLungs;
+                this.PainInLungs_checkBox.Text = Local.Local_RU.PainInLungs;
+                this.Sputum_checkBox.Text = Local.Local_RU.Sputum;
+                this.Diagnostic_button.Text = Local.Local_RU.Diagnostic_button_name;
             }
         }
 
