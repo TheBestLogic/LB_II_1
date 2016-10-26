@@ -33,11 +33,11 @@ namespace LB_II_1.Forms
             SymC.New();
             if (SupperRootCheckBox.Checked)
             {
-                SymC = GetSoloOrAllTables(Connection, SymC: SymC);
+                SymC = BetaGetSoloOrAllTables(Connection, SymC: SymC);
             }
             else
             {
-                SymC = GetSoloOrAllTables(Connection, (int)flag, SymC);
+                SymC = BetaGetSoloOrAllTables(Connection, (int)flag, SymC);
             }
             dataGridView.Rows[0].Cells[0].Value = Convert.ToString(SymC.ID);
             dataGridView.Rows[1].Cells[0].Value = Convert.ToString(SymC.Rheum);
@@ -102,41 +102,21 @@ namespace LB_II_1.Forms
 
         private void AUTOSET_button_Click(object sender, EventArgs e)
         {
-            SYMPTOME_COST[] SymC = new SYMPTOME_COST[5];
-            SymC[0].New();
-            SymC[0].ID = 1;
-            SymC[0].Cough = 1;
-            SymC[0].Sputum = 1;
-            SymC[0].FeverTemperature = 1;
-            SymC[0].PainInLungs = 1;
-            SymC[0].RattlingInLungs = 1;
-            SymC[1].New();
-            SymC[1].ID = 2;
-            SymC[1].JointPain = 1;
-            SymC[1].FeverTemperature = 1;
-            SymC[1].SoreThroat = 1;
-            SymC[1].ASoreThroatPain = 1;
-            SymC[2].New();
-            SymC[2].ID = 3;
-            SymC[2].Cough = 1;
-            SymC[2].FeverTemperature = 1;
-            SymC[2].SoreThroat = 1;
-            SymC[2].ASoreThroatPain = 1;
-            SymC[2].Rheum = 1;
-            SymC[3].New();
-            SymC[3].ID = 4;
-            SymC[3].Cough = 1;
-            SymC[3].FeverTemperature = 1;
-            SymC[3].SoreThroat = 1;
-            SymC[3].ASoreThroatPain = 1;
-            SymC[3].NotSay = 1;
-            SymC[4].New();
-            SymC[4].ID = 5;
-            SymC[4].Cough = 1;
-            SymC[4].Sputum = 1;
-            SymC[4].PainInLungs = 1;
-            SymC[4].RattlingInLungs = 1;
-            UpdateTable(Connection, 6, SymCM:SymC);
+            
+            if (SupperRootCheckBox.Checked)
+            {
+                Study(Connection);
+            }
+            else
+            {
+                SYMPTOME_COST[] SymC = new SYMPTOME_COST[5];
+                SymC[0].DefVPne();
+                SymC[1].DefVAng();
+                SymC[2].DefVFlu();
+                SymC[3].DefVPha();
+                SymC[4].DefVBro();
+                UpdateTable(Connection, 6, SymCM: SymC);
+            }
             MessageBox.Show("ADD");
         }
     }

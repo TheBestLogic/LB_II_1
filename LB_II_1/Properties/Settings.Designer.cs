@@ -105,5 +105,29 @@ namespace LB_II_1.Properties {
                 return ((string)(this["DatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TeachResource.txt")]
+        public string TxtName {
+            get {
+                return ((string)(this["TxtName"]));
+            }
+            set {
+                this["TxtName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TxtDir {
+            get {
+                return ((string)(this["TxtDir"]));
+            }
+            set {
+                this["TxtDir"] = value;
+            }
+        }
     }
 }

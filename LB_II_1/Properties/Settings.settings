@@ -31,5 +31,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database\Database.mdf;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="TxtName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TeachResource.txt</Value>
+    </Setting>
+    <Setting Name="TxtDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

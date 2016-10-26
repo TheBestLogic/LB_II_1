@@ -137,7 +137,7 @@ namespace LB_II_1.Forms
                         break;
                 }
             }
-            UpdateTable(Connection, Fl, SymC[Fl]);
+            UpdateTable(Connection, Fl, SymC[Fl-1]);
             Thread.Sleep(300);
             EnabledFunction();
         }
