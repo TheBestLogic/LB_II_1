@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System;
 using static LB_II_1.Classes.SimptomeWrite;
 
 namespace LB_II_1.Classes
@@ -31,29 +32,59 @@ namespace LB_II_1.Classes
         {
             using (StreamReader f = new StreamReader(Properties.Settings.Default.TxtDir))
             {
-                //global::LB_II_1.Database.Resource.TeachResource
-                string s;
-                string[] sa;
-                for(int j = 0; j < 75; ++j)
+                string str = Database.Resource.TeachResource;
+                try
                 {
-                    s = f.ReadLine();
-                    sa = s.Split(',');
-                    Sym[j].New();
-                    Sym[j].ID = 1;
-                    Sym[j].ID = (sa[0] == "2") ? (short)2 : Sym[j].ID;
-                    Sym[j].ID = (sa[0] == "3") ? (short)3 : Sym[j].ID;
-                    Sym[j].ID = (sa[0] == "4") ? (short)4 : Sym[j].ID;
-                    Sym[j].ID = (sa[0] == "5") ? (short)5 : Sym[j].ID;
-                    Sym[j].Rheum= (sa[1] == "1") ? (true) : (false); 
-                    Sym[j].Cough= (sa[2] == "1") ? (true) : (false); 
-                    Sym[j].ASoreThroatPain= (sa[3] == "1") ? (true) : (false); 
-                    Sym[j].FeverTemperature= (sa[4] == "1") ? (true) : (false); 
-                    Sym[j].JointPain= (sa[5] == "1") ? (true) : (false); 
-                    Sym[j].SoreThroat= (sa[6] == "1") ? (true) : (false); 
-                    Sym[j].Sputum= (sa[7] == "1") ? (true) : (false); 
-                    Sym[j].RattlingInLungs= (sa[8] == "1") ? (true) : (false); 
-                    Sym[j].PainInLungs= (sa[9] == "1") ? (true) : (false); 
-                    Sym[j].NotSay= (sa[10] == "1") ? (true) : (false); 
+                    string s;
+                    string[] sa;
+                    for (int j = 0; j < 75; ++j)
+                    {
+                        s = f.ReadLine();
+                        sa = s.Split(',');
+                        Sym[j].New();
+                        Sym[j].ID = 1;
+                        Sym[j].ID = (sa[0] == "2") ? (short)2 : Sym[j].ID;
+                        Sym[j].ID = (sa[0] == "3") ? (short)3 : Sym[j].ID;
+                        Sym[j].ID = (sa[0] == "4") ? (short)4 : Sym[j].ID;
+                        Sym[j].ID = (sa[0] == "5") ? (short)5 : Sym[j].ID;
+                        Sym[j].Rheum = (sa[1] == "1") ? (true) : (false);
+                        Sym[j].Cough = (sa[2] == "1") ? (true) : (false);
+                        Sym[j].ASoreThroatPain = (sa[3] == "1") ? (true) : (false);
+                        Sym[j].FeverTemperature = (sa[4] == "1") ? (true) : (false);
+                        Sym[j].JointPain = (sa[5] == "1") ? (true) : (false);
+                        Sym[j].SoreThroat = (sa[6] == "1") ? (true) : (false);
+                        Sym[j].Sputum = (sa[7] == "1") ? (true) : (false);
+                        Sym[j].RattlingInLungs = (sa[8] == "1") ? (true) : (false);
+                        Sym[j].PainInLungs = (sa[9] == "1") ? (true) : (false);
+                        Sym[j].NotSay = (sa[10] == "1") ? (true) : (false);
+                    }
+                }
+                catch(Exception e)
+                {
+                    string s = Database.Resource.TeachResource;
+                    string[] sa;
+                    string[] sb;
+                    sb = s.Split('\n');
+                    for (int j = 0; j < 75; ++j)
+                    {
+                        sa = sb[j].Split(',');
+                        Sym[j].New();
+                        Sym[j].ID = 1;
+                        Sym[j].ID = (sa[0] == "2") ? (short)2 : Sym[j].ID;
+                        Sym[j].ID = (sa[0] == "3") ? (short)3 : Sym[j].ID;
+                        Sym[j].ID = (sa[0] == "4") ? (short)4 : Sym[j].ID;
+                        Sym[j].ID = (sa[0] == "5") ? (short)5 : Sym[j].ID;
+                        Sym[j].Rheum = (sa[1] == "1") ? (true) : (false);
+                        Sym[j].Cough = (sa[2] == "1") ? (true) : (false);
+                        Sym[j].ASoreThroatPain = (sa[3] == "1") ? (true) : (false);
+                        Sym[j].FeverTemperature = (sa[4] == "1") ? (true) : (false);
+                        Sym[j].JointPain = (sa[5] == "1") ? (true) : (false);
+                        Sym[j].SoreThroat = (sa[6] == "1") ? (true) : (false);
+                        Sym[j].Sputum = (sa[7] == "1") ? (true) : (false);
+                        Sym[j].RattlingInLungs = (sa[8] == "1") ? (true) : (false);
+                        Sym[j].PainInLungs = (sa[9] == "1") ? (true) : (false);
+                        Sym[j].NotSay = (sa[10] == "1") ? (true) : (false);
+                    }
                 }
              }
             return Sym;
