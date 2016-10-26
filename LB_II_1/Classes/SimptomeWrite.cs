@@ -313,11 +313,17 @@ namespace LB_II_1.Classes
         private static int Deseare(SYMPTOME Sym, SYMPTOME_COST SymC)
         {
             int Summ = 0;
-                Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
-                Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
-                Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
-                Summ = (Sym.Sputum) ? (Summ + SymC.Sputum) : (Summ);
-            
+            Summ = (Sym.Cough) ? (Summ + SymC.Cough) : (Summ);
+            Summ = (Sym.PainInLungs) ? (Summ + SymC.PainInLungs) : (Summ);
+            Summ = (Sym.RattlingInLungs) ? (Summ + SymC.RattlingInLungs) : (Summ);
+            Summ = (Sym.Sputum) ? (Summ + SymC.Sputum) : (Summ);
+            Summ = (Sym.NotSay) ? (Summ + SymC.NotSay) : (Summ);
+            Summ = (Sym.ASoreThroatPain) ? (Summ + SymC.ASoreThroatPain) : (Summ);
+            Summ = (Sym.SoreThroat) ? (Summ + SymC.SoreThroat) : (Summ);
+            Summ = (Sym.FeverTemperature) ? (Summ + SymC.FeverTemperature) : (Summ);
+            Summ = (Sym.Rheum) ? (Summ + SymC.Rheum) : (Summ);
+            Summ = (Sym.JointPain) ? (Summ + SymC.JointPain) : (Summ);
+
             return Summ;
         }
     private static SYMPTOME_COST ChangeCost( SYMPTOME Sym, SYMPTOME_COST SymC,int DeseareIndex= 0)
